@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const path = require('path');
 const app = express();
 const fs = require('fs');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const myconn = require('express-myconnection')
 const bodyParser = require('body-parser');
 
@@ -22,7 +22,7 @@ app.use(myconn(mysql, {
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: '1234',
+    password: 'root',
     database: 'spidy',
     multipleStatements: true
 }));

@@ -69,7 +69,7 @@ export const InformacionArana = () => {
 
     <>
       <div>
-        <h1><center><font color="white">Arañas más identificadas por Spidy</font> </center></h1>
+        <h1><center><font color="white">Artrópodos identificados por Spidy</font> </center></h1>
         <br></br><br></br>
       </div>
       <Row xs={1} md={4} className="g-4">
@@ -78,7 +78,7 @@ export const InformacionArana = () => {
           <Card className="bg-dark text-white">
             <Card.Img variant="top" src={imagenprueba} width="250" height="250" />
             <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Tarántula</h2>
+              <Card.Footer><br></br><br></br><center><h2>Araña de jardín</h2>
 
                 <button onClick={handleShow} class="btn bg-transparent">
 
@@ -198,7 +198,7 @@ export const InformacionArana = () => {
 
               <Modal show={show2} onHide={handleClose2} centered>
                 <Modal.Header closeButton>
-                  <Modal.Title><h1>Viuda Negra</h1><p><i><font color="red">Latrodectus mactans</font></i></p></Modal.Title>
+                  <Modal.Title><h1>Viuda Negra</h1><p><i><font color="red">Latrodectus</font></i></p></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <div class="mt-2 mb-2 ms-2 me-2 ">
@@ -351,7 +351,7 @@ export const InformacionArana = () => {
           <Card className="bg-dark text-white">
             <Card.Img variant="top" src={linceverde} width="250" height="250" />
             <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Lince Verde</h2>
+              <Card.Footer><br></br><br></br><center><h2>Lince dssddsds</h2>
 
                 <button onClick={handleShow5} class="btn bg-transparent">
 
@@ -414,7 +414,7 @@ export const InformacionArana = () => {
 
               <Modal show={show6} onHide={handleClose6} centered>
                 <Modal.Header closeButton>
-                  <Modal.Title><h1>Cebra</h1><p><i><font color="red">Salticus scenicus</font></i></p></Modal.Title>
+                  <Modal.Title><h1>Cebrasaa</h1><p><i><font color="red">Salticus scenicus</font></i></p></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <div class="mt-2 mb-2 ms-2 me-2 ">

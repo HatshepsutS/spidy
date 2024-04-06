@@ -8,6 +8,9 @@
 #images
 /src/imagesUploaded
 
+#modelo CNN
+/modelserver/modeloEfNet512FInal.keras
+
 # testing
 /coverage
 

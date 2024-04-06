@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Prediction</title>
+</head>
+<body>
+    <h1>Upload an Image for Prediction</h1>
+    <form id="uploadForm" enctype="multipart/form-data" >
+        <input type="file" id="imageInput" name="file" required>
+        <button type="submit">Predict</button>
+    </form>
+    <h2>Prediction Result:</h2>
+    <pre id="predictionResult">No prediction yet</pre>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop the form from submitting normally
+
+            let formData = new FormData();
+            formData.append('file', document.getElementById('imageInput').files[0]);
+
+            fetch('http://localhost:3000/predictions/savePrediction', { // Changed to localhost:8000/predict
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                document.getElementById('predictionResult').textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('predictionResult').textContent = 'Failed to get prediction.';
+            });
+        });
+    </script>
+</body>
+</html>

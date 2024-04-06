@@ -16,25 +16,32 @@ export const CameraCapture = (props) => {
   }, []);
 
   useEffect(() => {
-    const image = new Image(224, 224);
-    image.src = photo;
+    // Update the src of imgGlobal directly with the photo state
     var imgGlobal = document.getElementById('imagen');
-    imgGlobal.src = photo;
-    props.setFileP(image);
+    if (photo) {
+      imgGlobal.src = photo;
+    }
+    // Assuming you want to handle the blob directly for uploads or further processing
+    // No need to create an Image object here if we're just displaying the blob URL
   }, [photo]);
 
   function takePhoto() {
     const canvas = document.querySelector('canvas');
-  
     const context = canvas.getContext('2d');
     const video = document.querySelector('video');
+    
+    // Draw the current frame from the video on the canvas
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
-    setPhoto(canvas.toDataURL('image/jpeg'));
+    
+    // Convert the canvas content to a data URL and set it as photo
+    const dataUrl = canvas.toDataURL('image/jpeg');
+    setPhoto(dataUrl);
+    
+    // Also convert the canvas content to a blob and pass it to the parent component
     canvas.toBlob(function (blob) {
-      props.setImage(blob)
-    });
-
-  };
+      props.setImage(blob);
+    }, 'image/jpeg');
+  }
 
   return (
    

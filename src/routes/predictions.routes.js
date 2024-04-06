@@ -22,7 +22,7 @@ const axios = require('axios');
 const fs = require('fs');
 const FormData = require('form-data');
 
-router.post('/savePrediction', fileUpload, (req, res) => {
+router.post('/predict', fileUpload, (req, res) => {
     // Asumiendo que `req.file.path` contiene la ruta del archivo de imagen subido
     const filePath = req.file.path;
 
@@ -64,25 +64,6 @@ router.post('/savePrediction', fileUpload, (req, res) => {
     });
 });
 
-// router.post('/savePrediction', fileUpload, (req, res) => {
-//     const prediction = req.body.prediction;
-//     const date = new Date(Date.now()).toISOString().slice(0, 19).replace('T', ' ');
-//     const storagePath = req.file.filename;
-
-//     req.getConnection((err, conn) => {
-//         if (err) return res.status(500).send('server error')
-
-//         conn.query('INSERT INTO predictions set ?;SELECT LAST_INSERT_ID() AS ID;', [{ prediction, date, storagePath }], (err, rows, filds) => {
-//             if (err) {
-//                 console.error('Error al ejecutar la consulta en saveprediction:', err);
-//                 return;
-//             }
-//             let id = Object.values(JSON.parse(JSON.stringify(rows)));
-//             res.send(id[1][0]);
-//         })
-//     });
-
-// });
 
 router.get('/infoSpider', (req, res) => {
     req.getConnection((err, conn) => {

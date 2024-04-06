@@ -21,7 +21,7 @@ import amaupng from '../images/amaufb.jpg';
 
 export const Detectar = () => {
     const [option, setOption] = useState(false);//false => render module  Escanear | true => render module CameraCapture
-    const [model, setModel] = useState(null);
+
     const [image, setImage] = useState(null);
     const [fileP, setFileP] = useState(null);
     const [idPrediction, setIdPrediction] = useState(null);
@@ -40,46 +40,11 @@ export const Detectar = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    useEffect(() => {
-        const loadModelAsync = async () => {
-            const tfReady = await tf.ready();
-            const model = await tf.loadGraphModel("./model.json");
-            console.log("Modelo cargado")
-            setModel(model);
-        }
-        loadModelAsync();
-    }, []);
-
-
-    function preprocessImg() {
-        let tensor = tf.browser.fromPixels(fileP).resizeNearestNeighbor([224, 224]).toFloat();
-        let offset = tf.scalar(127.5);
-        return tensor.sub(offset).div(offset).expandDims();
-    }
-
-    // async function predict() {
-    //     console.log("Analizando...")
-    //     if (model == null) {
-    //         console.log("Modelo es null")
-    //     } else if (fileP == null) {
-    //         console.log("Photo es null")
-    //     } else {
-    //         let tensor = preprocessImg();
-    //         var prediccion = model.predict(tensor).dataSync();
-    //         var mayorIndice = prediccion.indexOf(Math.max.apply(null, prediccion));
-    //         console.log(mayorIndice);
-    //         setResult(mayorIndice);
-    //         savePrediction(mayorIndice);
-    //         getInfoSpider(mayorIndice)
-    //         handleShow();
-    //     }
-    // }
-
     async function predict() {
         const formData = new FormData();
         formData.append('file', image);
 
-        axios.post('/predictions/savePrediction', formData).then((response) => {
+        axios.post('/predictions/predict', formData).then((response) => {
             setIdPrediction(response.data.id);
             console.log(response.data.id)
             setResult(response.data.prediction);
@@ -91,17 +56,6 @@ export const Detectar = () => {
 
 
 
-    const savePrediction = (mayorIndice) => {
-
-        const formData = new FormData();
-        formData.append('image', image);
-        formData.append('prediction', mayorIndice + 1);
-
-        axios.post('/predictions/savePrediction', formData).then((response) => {
-            setIdPrediction(response.data.ID);
-        });
-
-    };
 
     const getInfoSpider = (prediction) => {
         const imagenes = [amaupng, cebrapng, eremobatespng, lincepng, pataslargas, imagenprueba, violinistapng, viudanegrapng];

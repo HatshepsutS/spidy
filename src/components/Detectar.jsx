@@ -57,22 +57,35 @@ export const Detectar = () => {
         return tensor.sub(offset).div(offset).expandDims();
     }
 
+    // async function predict() {
+    //     console.log("Analizando...")
+    //     if (model == null) {
+    //         console.log("Modelo es null")
+    //     } else if (fileP == null) {
+    //         console.log("Photo es null")
+    //     } else {
+    //         let tensor = preprocessImg();
+    //         var prediccion = model.predict(tensor).dataSync();
+    //         var mayorIndice = prediccion.indexOf(Math.max.apply(null, prediccion));
+    //         console.log(mayorIndice);
+    //         setResult(mayorIndice);
+    //         savePrediction(mayorIndice);
+    //         getInfoSpider(mayorIndice)
+    //         handleShow();
+    //     }
+    // }
+
     async function predict() {
-        console.log("Analizando...")
-        if (model == null) {
-            console.log("Modelo es null")
-        } else if (fileP == null) {
-            console.log("Photo es null")
-        } else {
-            let tensor = preprocessImg();
-            var prediccion = model.predict(tensor).dataSync();
-            var mayorIndice = prediccion.indexOf(Math.max.apply(null, prediccion));
-            console.log(mayorIndice);
-            setResult(mayorIndice);
-            savePrediction(mayorIndice);
-            getInfoSpider(mayorIndice)
+        const formData = new FormData();
+        formData.append('file', image);
+
+        axios.post('/predictions/savePrediction', formData).then((response) => {
+            setIdPrediction(response.data.id);
+            console.log(response.data.id)
+            setResult(response.data.prediction);
+            getInfoSpider(response.data.prediction);
             handleShow();
-        }
+        });
     }
 
 
@@ -128,9 +141,9 @@ export const Detectar = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-<font color="white">
-<h1 className='text-center'>ANALIZADOR DE ARAÑAS</h1>
-<h3 className='text-center'>Toma la fotografía de la araña que quieras identificar o bien, sube una desde tu dispositivo</h3> <br></br></font>
+            <font color="white">
+                <h1 className='text-center'>ANALIZADOR DE ARAÑAS</h1>
+                <h3 className='text-center'>Toma la fotografía de la araña que quieras identificar o bien, sube una desde tu dispositivo</h3> <br></br></font>
             <div className="btn-group">
                 <button
                     type="button"
@@ -146,10 +159,10 @@ export const Detectar = () => {
                 </button>
             </div>
             <div className="boxImagePhoto">
-              
+
                 {option ? <CameraCapture setFileP={setFileP} setImage={setImage} predict={predict} /> : <Escanear setFileP={setFileP} setImage={setImage} predict={predict} />}
-               
-            
+
+
             </div>
 
         </div>

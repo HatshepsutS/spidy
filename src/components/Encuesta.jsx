@@ -17,7 +17,7 @@ export const Encuesta = (props) => {
         } else {
             console.log("idPredictions", props.idPrediction);
             console.log("option", optionEncuesta);
-            const data = { idPrediction: props.idPrediction, surveyResult: optionEncuesta };
+            const data = { idPrediction: parseInt(props.idPrediction), surveyResult: optionEncuesta };
 
             axios.post('/predictions/encuesta', data, {
                 headers: {

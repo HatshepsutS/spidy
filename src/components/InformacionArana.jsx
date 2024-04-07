@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 import imagenprueba from '../images/imagenprueba.jpg';
 import viudanegraimg from '../images/viudanegra.jpg';
 import pataslargas from '../images/pataslargas.jpg';
-import eremobates from '../images/eremobates.jpg';
+import argiope from '../images/bandeada.jpg';
 import violinista from '../images/violinista.jpeg';
 import linceverde from '../images/linceverde.jpg';
 import tarantulapng from '../images/tarantulatransp.png';
-import eremobatespng from '../images/eremobatesfondob.jpg';
+import argiopepng from '../images/eremobatesfondob.jpg';
 import viudanegrapng from '../images/viudanegrafb.jpg';
 import violinistapng from '../images/violinistafb.jpeg';
 import cebrapng from '../images/cebrafb.jpg';
@@ -63,6 +63,9 @@ export const InformacionArana = () => {
   const [show7, setShow7] = useState(false);
   const handleClose7 = () => setShow7(false);
   const handleShow7 = () => setShow7(true);
+  const [show8, setShow8] = useState(false);
+  const handleClose8 = () => setShow8(false);
+  const handleShow8 = () => setShow8(true);
 
 
   return (
@@ -76,9 +79,9 @@ export const InformacionArana = () => {
         <Col>
 
           <Card className="bg-dark text-white">
-            <Card.Img variant="top" src={imagenprueba} width="250" height="250" />
+            <Card.Img variant="top" src={viudanegraimg} width="250" height="250" />
             <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Araña de jardín</h2>
+              <Card.Footer><br></br><br></br><center><h2>Latrodectus</h2>
 
                 <button onClick={handleShow} class="btn bg-transparent">
 
@@ -90,28 +93,24 @@ export const InformacionArana = () => {
 
               <Modal show={show} onHide={handleClose} centered>
                 <Modal.Header closeButton>
-                  <Modal.Title><h1>Tarántula</h1><p><i><font color="red">Brachypelma smithi</font></i></p></Modal.Title>
+                  <Modal.Title><h1>Latrodectus</h1><p><i><font color="red">Viuda negra</font></i></p></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <div class="mt-2 mb-2 ms-2 me-2 ">
                     <Row >
                       <Col>
-                        <img src={tarantulapng} class="img-fluid" ></img>
+                        <img src={viudanegrapng} class="img-fluid" ></img>
                       </Col>
                       <Col>
-                        <p className="text-end">Con grandes colmillos, ocho patas peludas y una apariencia general que es aterradora y linda,
-                          las tarántulas son una de las especies de arañas más reconocibles, y con razón.
-                        </p>
+                        <p className="text-end">Las 'Latrodectus' son unas arañas con muy mala reputación, la viuda negra del sur tal vez sea la más reconocibles por la marca coloreada en forma de reloj de arena que luce en el abdomen. </p>
                       </Col>
                     </Row>
                     <Row>
                       <Col>
                         <p className="text-center">
-                          Son las arañas más grandes del mundo, con las especies más grandes de California alcanzando extensiones
-                          de patas adultas de 4.5 pulgadas.
-                          Se pueden encontrar varias especies de tarántulas en todo el mundo
-                          en una amplia gama de hábitats, desde selvas tropicales hasta praderas y desde bosques templados
-                          hasta desiertos.</p>
+                        La mordedura de esta araña provoca mucho miedo porque es hasta 15 veces más potente que el de una serpiente de cascabel. En los humanos, la mordedura produce dolor muscular, náuseas y parálisis del diafragma que provoca dificultad para respirar; pero, al contrario de la creencia popular, la mayor parte de las personas que reciben un mordisco no sufren
+                         graves consecuencias y, ni muchos menos, mueren. Pero la mordedura sí que puede ser mortal, normalmente entre los más pequeños, los mayores y los enfermos. Afortunadamente las muertes son muy escasas; las arañas no son agresivas y muerden solo en defensa propia, como cuando alguien se sienta accidentalmente sobre ellas.</p>
+                     <br></br><p><i><font color="gray">National Geographic. (2023, 19 julio). Las «Latrodectus»  arañas con muy mala reputación. https://www.nationalgeographic.es/animales/viuda-negra</font></i></p>
                       </Col>
                     </Row></div>
                 </Modal.Body>
@@ -128,11 +127,10 @@ export const InformacionArana = () => {
 
         </Col>
         <Col>
-
           <Card className="bg-dark text-white">
-            <Card.Img variant="top" src={eremobates} width="250" height="250" />
+            <Card.Img variant="top" src={violinista} width="250" height="250" />
             <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Eremobates</h2>
+              <Card.Footer><br></br><br></br><center><h2>Loxosceles</h2>
 
                 <button onClick={handleShow1} class="btn bg-transparent">
 
@@ -144,26 +142,25 @@ export const InformacionArana = () => {
 
               <Modal show={show1} onHide={handleClose1} centered>
                 <Modal.Header closeButton>
-                  <Modal.Title><h1>Eremobates</h1><p><i><font color="red">Eremobates aztecus</font></i></p></Modal.Title>
+                  <Modal.Title><h1>Loxosceles</h1><p><i><font color="red">Violinista/Araña de rincón</font></i></p></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <div class="mt-2 mb-2 ms-2 me-2 ">
                     <Row >
                       <Col>
-                        <img src={eremobatespng} class="img-fluid" ></img>
+                        <img src={violinistapng} class="img-fluid" ></img>
                       </Col>
                       <Col>
-                        <p className="text-end">De aproximadamente 2 pulgadas de largo, estos arácnidos son de rápido movimiento
+                        <p className="text-end">Esta araña es de carácter más bien solitario y tímido. Prefiere como hábitat sitios de poco trasiego como desvanes, cobertizos o, sitios donde no hay mucho movimiento.
                         </p>
                       </Col>
                     </Row>
                     <Row>
                       <Col>
                         <p className="text-center">
-                          Tienen la proporción más grande entre el tamaño de la mandíbula y el cuerpo de cualquier animal.
-                          Tienen una mordedura notablemente poderosa. A menudo cazan de noche, tienen problemas de visión y
-                          navegan principalmente mediante el uso de un par de pedipalpos. Son criaturas solitarias.
-                        </p>
+                        La mordedura de araña es sólo en defensa propia. Puede ocurrir durante todo el año, pero es más frecuente en primavera y verano. Su veneno Tiene propiedad necrotizante (muerte de tejido), hemolítica (muerte de los glóbulos rojos), vasculítica y coagulante. En la piel provoca graves alteraciones vasculares, con áreas de vasoconstricción y otras de hemorragia, que llevan rápidamente a la isquemia (falta de sangre) local y a la constitución de una placa gangrenosa.
+                          </p>
+                          <br></br><p><i><font color="gray">Pontificia Universidad Católica de Chile. (2017, October 6). La araña del rincón (LOXOSCELES LAETA) - Escuela de Medicina. Facultad De Medicina PUCDC. https://medicina.uc.cl/publicacion/la-arana-del-rincon-loxosceles-laeta/</font></i></p>
                       </Col>
                     </Row></div>
                 </Modal.Body>
@@ -184,9 +181,9 @@ export const InformacionArana = () => {
         <Col>
 
           <Card className="bg-dark text-white">
-            <Card.Img variant="top" src={viudanegraimg} width="250" height="250" />
+            <Card.Img variant="top" src={argiope} width="250" height="250" />
             <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Viuda Negra</h2>
+              <Card.Footer><br></br><br></br><center><h2>Argiope</h2>
 
                 <button onClick={handleShow2} class="btn bg-transparent">
 
@@ -198,13 +195,13 @@ export const InformacionArana = () => {
 
               <Modal show={show2} onHide={handleClose2} centered>
                 <Modal.Header closeButton>
-                  <Modal.Title><h1>Viuda Negra</h1><p><i><font color="red">Latrodectus</font></i></p></Modal.Title>
+                  <Modal.Title><h1>Argiope</h1><p><i><font color="red">Bandeada de Jardín</font></i></p></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <div class="mt-2 mb-2 ms-2 me-2 ">
                     <Row >
                       <Col>
-                        <img src={viudanegrapng} width="170" height="170" class="img-fluid" ></img>
+                        <img src={argiopepng} width="170" height="170" class="img-fluid" ></img>
                       </Col>
                       <Col>
                         <p className="text-end">Tiene un cuerpo negro y brillante con una forma de reloj de arena rojo en la zona ventral.
@@ -238,9 +235,9 @@ export const InformacionArana = () => {
         <Col>
 
           <Card className="bg-dark text-white">
-            <Card.Img variant="top" src={violinista} width="250" height="250" />
+            <Card.Img variant="top" src={imagenprueba} width="250" height="250" />
             <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Violinista</h2>
+              <Card.Footer><br></br><br></br><center><h2>Brachypelma</h2>
 
                 <button onClick={handleShow3} class="btn bg-transparent">
 
@@ -252,29 +249,24 @@ export const InformacionArana = () => {
 
               <Modal show={show3} onHide={handleClose3} centered>
                 <Modal.Header closeButton>
-                  <Modal.Title><h1>Violinista/Araña de rincón</h1><p><i><font color="red">Loxosceles laeta</font></i></p></Modal.Title>
+                  <Modal.Title><h1>Brachypelma</h1><p><i><font color="red">Tarántula</font></i></p></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <div class="mt-2 mb-2 ms-2 me-2 ">
                     <Row >
                       <Col>
-                        <img src={violinistapng} class="img-fluid" ></img>
+                        <img src={tarantulapng} class="img-fluid" ></img>
                       </Col>
                       <Col>
-                        <p className="text-end">La araña violinista es una especie nocturna que se adapta a cualquier ecosistema.
+                        <p className="text-end">Es una especie nocturna que se adapta a cualquier ecosistema.
                         </p>
                       </Col>
                     </Row>
                     <Row>
                       <Col>
                         <p className="text-center">
-                          Puede provocar la muerte debido a que su veneno disuelve los tejidos, causa muerte celular,
-                          contiene poderosas enzimas que destruyen todo lo que tiene proteínas y su efecto es 10 veces
-                          más poderoso que la quemadura con ácido sulfúrico.
-                          Por eso, los especialistas del sector salud recomiendan que, ante la mordedura de esta araña,
-                          se actúe rápidamente aplicando hielo y vendaje compresivo frío sobre la herida y, de ser posible,
-                          lavando la zona con agua y jabón, además de acudir al Centro de Salud más cercano.
-                        </p>
+                          INFO
+                          </p>
                       </Col>
                     </Row></div>
                 </Modal.Body>
@@ -351,7 +343,7 @@ export const InformacionArana = () => {
           <Card className="bg-dark text-white">
             <Card.Img variant="top" src={linceverde} width="250" height="250" />
             <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Lince dssddsds</h2>
+              <Card.Footer><br></br><br></br><center><h2>Peucetia </h2>
 
                 <button onClick={handleShow5} class="btn bg-transparent">
 
@@ -363,7 +355,7 @@ export const InformacionArana = () => {
 
               <Modal show={show5} onHide={handleClose5} centered>
                 <Modal.Header closeButton>
-                  <Modal.Title><h1>Lince Verde</h1><p><i><font color="red">Peucetia viridans</font></i></p></Modal.Title>
+                  <Modal.Title><h1>Peucetia </h1><p><i><font color="red">Lince Verde</font></i></p></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <div class="mt-2 mb-2 ms-2 me-2 ">
@@ -402,7 +394,7 @@ export const InformacionArana = () => {
           <Card className="bg-dark text-white">
             <Card.Img variant="top" src={cebra} width="250" height="250" />
             <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Cebra</h2>
+              <Card.Footer><br></br><br></br><center><h2>Habronattus</h2>
 
                 <button onClick={handleShow6} class="btn bg-transparent">
 
@@ -414,7 +406,7 @@ export const InformacionArana = () => {
 
               <Modal show={show6} onHide={handleClose6} centered>
                 <Modal.Header closeButton>
-                  <Modal.Title><h1>Cebrasaa</h1><p><i><font color="red">Salticus scenicus</font></i></p></Modal.Title>
+                  <Modal.Title><h1>Habronattus</h1><p><i><font color="red">Araña Saltarina</font></i></p></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <div class="mt-2 mb-2 ms-2 me-2 ">
@@ -453,7 +445,7 @@ export const InformacionArana = () => {
           <Card className="bg-dark text-white">
             <Card.Img variant="top" src={amauris} width="250" height="250" />
             <Card.ImgOverlay>
-              <Card.Footer><br></br><center><h2>Amaurobius Similis</h2>
+              <Card.Footer><br></br><center><h2>Centruroides</h2>
 
                 <button onClick={handleShow7} class="btn bg-transparent">
 
@@ -465,7 +457,7 @@ export const InformacionArana = () => {
 
               <Modal show={show7} onHide={handleClose7} centered>
                 <Modal.Header closeButton>
-                  <Modal.Title><h1>Amaurobius Similis</h1></Modal.Title>
+                  <Modal.Title><h1>Centruroides</h1></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <div class="mt-2 mb-2 ms-2 me-2 ">
@@ -499,6 +491,60 @@ export const InformacionArana = () => {
           </Card>
 
         </Col>
+
+        <Col>
+
+<Card className="bg-dark text-white">
+  <Card.Img variant="top" src={amauris} width="250" height="250" />
+  <Card.ImgOverlay>
+    <Card.Footer><br></br><center><h2>Vaejovis</h2>
+
+      <button onClick={handleShow8} class="btn bg-transparent">
+
+        <a class="btnmore primary">
+          <span>Más información</span>
+        </a>
+
+      </button></center></Card.Footer>
+
+    <Modal show={show8} onHide={handleClose8} centered>
+      <Modal.Header closeButton>
+        <Modal.Title><h1>Vaejovis</h1></Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <div class="mt-2 mb-2 ms-2 me-2 ">
+          <Row >
+            <Col>
+              <img src={amaupng} class="img-fluid" ></img>
+            </Col>
+            <Col>
+              <p className="text-end">Todos los miembros de la familia Amaurobiidae son nocturno.
+              </p>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <p className="text-center">
+                Tejido en un embudo, un peine en una textura deshilachado con un calamistrum, una fila de pelos
+                tiesos en las piernas traseras. Como Velcro, gancho hebilla de insectos atrapado en la tela
+                de pelo, que permite la captura de presas mucho más grandes que la araña sí mismo.
+              </p>
+            </Col>
+          </Row></div>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" id="escaner" onClick={handleClose8}>
+          Regresar
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  </Card.ImgOverlay>
+
+</Card>
+
+</Col>
+
+
       </Row>
 
       <br></br> <br></br>

@@ -8,9 +8,8 @@ import { BsPinMapFill } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 import Nani from '../images/Nani.jpg';
-import braulio from '../images/braulio.jpg';
 import Mau from '../images/Mau.jpg';
-import Marco from '../images/Marco.jpg';
+import Adrian from '../images/Adrian.jpg';
 import { Card } from 'react-bootstrap';
 import { Placeholder } from 'react-bootstrap';
 import Swal from 'sweetalert2'
@@ -76,10 +75,10 @@ export const Nosotros = () => {
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <div class="our-team">
         <div class="picture">
-          <img class="img-fluid" src={Marco}/>
+          <img class="img-fluid" src={Adrian}/>
         </div>
         <div class="team-content">
-          <h3 class="name">Marco Bernal</h3>
+          <h3 class="name">Adrián García</h3>
           <h4 class="title">Web Developer</h4>
         </div>
         <ul class="social">
@@ -90,23 +89,7 @@ export const Nosotros = () => {
         </ul>
       </div>
     </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-      <div class="our-team">
-        <div class="picture">
-          <img class="img-fluid" src={braulio}/>
-        </div>
-        <div class="team-content">
-          <h3 class="name">Braulio Hernández</h3>
-          <h4 class="title">Web Developer</h4>
-        </div>
-        <ul class="social">
-          <li><a href="" aria-hidden="true"><i><FaLinkedinIn size="1em" /></i></a></li>
-          <li><a href="" aria-hidden="true"><i ><AiOutlineMail size="1em" /> </i></a></li>
-          <li><a href=""  aria-hidden="true"><i ><BsGithub size="1em"/> </i></a></li>
-
-        </ul>
-      </div>
-    </div>
+       
   </div>
 </div>
 

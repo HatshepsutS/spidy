@@ -14,7 +14,8 @@ const routesToRedirect = [
     '/Escanear',
     '/CameraCapture',
     '/Mapa',
-    '/AdminPanel'
+    '/AdminPanel',
+    '/Emergencias'
 ]
 
 //Database connection

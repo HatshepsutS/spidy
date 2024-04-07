@@ -97,11 +97,11 @@ function NavBar(props) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Link className="nav-link" to="/InformacionArana">Información arácnida</Link>
+              <Link className="nav-link" to="/InformacionArana">Especies</Link>
               <Link className="nav-link" to="/Mapa">Mapa</Link>
               <Link className="nav-link" to="/Detectar">Escaner</Link>
+              <Link className="nav-link" to="/Emergencias">Emergencias</Link>
               <Link className="nav-link" to="/Nosotros">Contacto</Link>
-
             </Nav>
             <Nav>
               <button class="loginhide color" onClick={handleShow}><font color="#22252A">,</font></button>

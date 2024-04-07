@@ -37,7 +37,7 @@ export const Nosotros = () => {
     </div>
    
     <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <div class="our-team">
         <div class="picture">

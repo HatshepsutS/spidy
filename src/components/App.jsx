@@ -10,7 +10,7 @@ import { CameraCapture } from './CameraCapture';
 import { AdminPanel } from './AdminPanel';
 import { InformacionArana } from './InformacionArana';
 import { Escanear } from './Escanear';
-
+import { Emergencias } from './Emergencias';
 import GridLoader from "react-spinners/GridLoader";
 import {
   BrowserRouter as Router,
@@ -79,6 +79,8 @@ function App() {
               <Route path="/Mapa" element={<Mapa />}>
               </Route>
               <Route path="/" element={<Inicio />}>
+              </Route>
+              <Route path="/Emergencias" element={<Emergencias />}>
               </Route>
               <Route path="/AdminPanel" element={<AdminPanel IsAdmin={IsAdmin} />}>
               </Route>

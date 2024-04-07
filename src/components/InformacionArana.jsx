@@ -13,8 +13,10 @@ import violinistapng from '../images/violinistafb.jpeg';
 import cebrapng from '../images/cebrafb.jpg';
 import lincepng from '../images/lincefb.jpg';
 import patonapng from '../images/pataslargasfb.jpg';
-import amaupng from '../images/amaufb.jpg';
-import amauris from '../images/amauris.jpg';
+import vaejovis from '../images/vaejovis.jpg';
+import vaejovispng from '../images/vaejovispng.jpg';
+import centruroides from '../images/centruroides.jpg';
+import centruroidespng from '../images/centruroidespng.jpg';
 import cebra from '../images/cebra.jpeg';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
@@ -443,7 +445,7 @@ export const InformacionArana = () => {
         <Col>
 
           <Card className="bg-dark text-white">
-            <Card.Img variant="top" src={amauris} width="250" height="250" />
+            <Card.Img variant="top" src={centruroides} width="250" height="250" />
             <Card.ImgOverlay>
               <Card.Footer><br></br><center><h2>Centruroides</h2>
 
@@ -463,7 +465,7 @@ export const InformacionArana = () => {
                   <div class="mt-2 mb-2 ms-2 me-2 ">
                     <Row >
                       <Col>
-                        <img src={amaupng} class="img-fluid" ></img>
+                        <img src={centruroidespng} class="img-fluid" ></img>
                       </Col>
                       <Col>
                         <p className="text-end">Todos los miembros de la familia Amaurobiidae son nocturno.
@@ -495,7 +497,7 @@ export const InformacionArana = () => {
         <Col>
 
 <Card className="bg-dark text-white">
-  <Card.Img variant="top" src={amauris} width="250" height="250" />
+  <Card.Img variant="top" src={vaejovis} width="250" height="250" />
   <Card.ImgOverlay>
     <Card.Footer><br></br><center><h2>Vaejovis</h2>
 
@@ -515,7 +517,7 @@ export const InformacionArana = () => {
         <div class="mt-2 mb-2 ms-2 me-2 ">
           <Row >
             <Col>
-              <img src={amaupng} class="img-fluid" ></img>
+              <img src={vaejovispng} class="img-fluid" ></img>
             </Col>
             <Col>
               <p className="text-end">Todos los miembros de la familia Amaurobiidae son nocturno.

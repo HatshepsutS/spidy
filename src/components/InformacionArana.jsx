@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-
+import React, { useState } from 'react';
+import { Card, Row, Col, Button, Modal } from 'react-bootstrap';
 import imagenprueba from '../images/imagenprueba.jpg';
 import viudanegraimg from '../images/viudanegra.jpg';
 import pataslargas from '../images/pataslargas.jpg';
@@ -18,540 +18,130 @@ import vaejovispng from '../images/vaejovispng.jpg';
 import centruroides from '../images/centruroides.jpg';
 import centruroidespng from '../images/centruroidespng.jpg';
 import cebra from '../images/cebra.jpeg';
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 
 export const InformacionArana = () => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  //se que esto es horrible y espantoso, no se bien react y no supe hacer una funcion pa esto xd , una disculpa <3 
-
-  const [show1, setShow1] = useState(false);
-  const handleClose1 = () => setShow1(false);
-  const handleShow1 = () => setShow1(true);
-
-
-  const [show2, setShow2] = useState(false);
-  const handleClose2 = () => setShow2(false);
-  const handleShow2 = () => setShow2(true);
-
-
-  const [show3, setShow3] = useState(false);
-  const handleClose3 = () => setShow3(false);
-  const handleShow3 = () => setShow3(true);
-
-
-
-  const [show4, setShow4] = useState(false);
-  const handleClose4 = () => setShow4(false);
-  const handleShow4 = () => setShow4(true);
-
-
-  const [show5, setShow5] = useState(false);
-  const handleClose5 = () => setShow5(false);
-  const handleShow5 = () => setShow5(true);
-
-
-  const [show6, setShow6] = useState(false);
-  const handleClose6 = () => setShow6(false);
-  const handleShow6 = () => setShow6(true);
-
-
-  const [show7, setShow7] = useState(false);
-  const handleClose7 = () => setShow7(false);
-  const handleShow7 = () => setShow7(true);
-  const [show8, setShow8] = useState(false);
-  const handleClose8 = () => setShow8(false);
-  const handleShow8 = () => setShow8(true);
-
+  // Estados y funciones para manejar la visibilidad de los modales
+  const [show, setShow] = useState(new Array(9).fill(false));
+  const handleClose = index => setShow(show.map((s, si) => (si === index ? false : s)));
+  const handleShow = index => setShow(show.map((s, si) => (si === index ? true : s)));
 
   return (
-
     <>
       <div>
-        <h1><center><font color="white">Artrópodos identificados por Spidy</font> </center></h1>
-        <br></br><br></br>
+        <h1><center><font color="white">Artrópodos identificados por Spidy</font></center></h1>
+        <br /><br />
       </div>
-      <Row xs={1} md={4} className="g-4">
-        <Col>
-
-          <Card className="bg-dark text-white">
-            <Card.Img variant="top" src={viudanegraimg} width="250" height="250" />
-            <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Latrodectus</h2>
-
-                <button onClick={handleShow} class="btn bg-transparent">
-
-                  <a class="btnmore primary">
-                    <span>Más información</span>
-                  </a>
-
-                </button></center></Card.Footer>
-
-              <Modal show={show} onHide={handleClose} centered>
-                <Modal.Header closeButton>
-                  <Modal.Title><h1>Latrodectus</h1><p><i><font color="red">Viuda negra</font></i></p></Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
+      
+      {/* Sección de Arañas */}
+      <h2 style={{ color: 'white', textAlign: 'center' }}>Arañas</h2>
+    <Row xs={1} md={4} className="g-4 justify-content-center">
+        {[
+          { id: 0, img: viudanegraimg, title: 'Latrodectus', modalImg: viudanegrapng, modalTitle: 'Viuda negra', descriptionShort:'Las Latrodectus son unas arañas con muy mala reputación',descriptionLong:"La mordedura de esta araña provoca mucho miedo porque es hasta 15 veces más potente que el de una serpiente de cascabel. En los humanos, la mordedura produce dolor muscular, náuseas y parálisis del diafragma que provoca dificultad para respirar; pero, al contrario de la creencia popular, la mayor parte de las personas que reciben un mordisco no sufren graves consecuencias y, ni muchos menos, mueren. Pero la mordedura sí que puede ser mortal, normalmente entre los más pequeños, los mayores y los enfermos. Afortunadamente las muertes son muy escasas; las arañas no son agresivas y muerden solo en defensa propia", source:"National Geographic. (2023, 19 julio). Las «Latrodectus»  arañas con muy mala reputación. https://www.nationalgeographic.es/animales/viuda-negra"  },
+          { id: 1, img: violinista, title: 'Loxosceles', modalImg: violinistapng, modalTitle: 'Violinista/Araña de rincón' , descriptionLong:" La mordedura de araña es sólo en defensa propia. Puede ocurrir durante todo el año, pero es más frecuente en primavera y verano. Su veneno Tiene propiedad necrotizante (muerte de tejido), hemolítica (muerte de los glóbulos rojos), vasculítica y coagulante. En la piel provoca graves alteraciones vasculares, con áreas de vasoconstricción y otras de hemorragia, que llevan rápidamente a la isquemia (falta de sangre) local y a la constitución de una placa gangrenosa.",descriptionShort:"Esta araña es de carácter más bien solitario y tímido. Prefiere como hábitat sitios de poco trasiego como desvanes, cobertizos o, sitios donde no hay mucho movimiento.", source:"ontificia Universidad Católica de Chile. (2017, October 6). La araña del rincón (LOXOSCELES LAETA) - Escuela de Medicina. Facultad De Medicina PUCDC. https://medicina.uc.cl/publicacion/la-arana-del-rincon-loxosceles-laeta/"},
+          { id: 2, img: argiope, title: 'Argiope', modalImg: argiopepng, modalTitle: 'Bandeada de Jardín', descriptionLong:"Crea grandes telas en forma de espiral adornadas con un zigzag central de seda más gruesa conocido como estabilimento. Estas arañas suelen habitar en jardines y campos abiertos, donde se alimentan de insectos que quedan atrapados en sus telas. A pesar de su tamaño y apariencia llamativa, son inofensivas para los humanos.",descriptionShort:" La araña Argiope es conocida por sus impresionantes telas con diseños en zigzag. Son depredadoras pacíficas que suelen encontrarse en jardines.", source:'' },
+          { id: 3, img: imagenprueba, title: 'Brachypelma', modalImg: tarantulapng, modalTitle: 'Tarántula', descriptionLong:"Las tarántulas del género Brachypelma se caracterizan por sus cuerpos robustos, patas peludas y un comportamiento generalmente dócil hacia los humanos. Originarias de América, estas arañas prefieren climas cálidos y secos. Aunque su mordedura puede causar molestias, generalmente no son peligrosas para los seres humanos. Son criaturas nocturnas que pasan la mayor parte del día escondidas bajo tierra en madrigueras.",descriptionShort:"Son conocidas por su tamaño impresionante y su naturaleza dócil, lo que las hace populares en el mundo de las mascotas exóticas.", source:'' },
+          { id: 4, img: pataslargas, title: 'Physocyclus', modalImg: patonapng, modalTitle: 'Araña Patona',descriptionLong:"Estas arañas no tejen telas tradicionales, sino que capturan a sus presas con un método único: escupen una sustancia pegajosa que inmoviliza a sus víctimas. Prefieren habitar en rincones oscuros y húmedos de las casas y son completamente inofensivas para los humanos.",descriptionShort:"Las arañas Physocyclus son notables por sus larguísimas patas en relación con su cuerpo, lo que le permite moverse rápidamente.", source:'' },
+          { id: 5, img: linceverde, title: 'Peucetia', modalImg: lincepng, modalTitle: 'Lince Verde',descriptionLong:"A diferencia de muchas otras arañas, la Peucetia no utiliza una tela para capturar insectos, sino que los caza activamente, lo que refleja su agilidad y velocidad excepcionales. Aunque es una visión común en jardines, esta araña rara vez interactúa con humanos y es inofensiva.",descriptionShort:"La araña lince verde, Peucetia, es conocida por su coloración verde vibrante, que utiliza para camuflarse entre las hojas mientras caza.", source:'' },
+          { id: 6, img: cebra, title: 'Habronattus', modalImg: cebrapng, modalTitle: 'Araña Saltarina', descriptionLong:"Habronattus, parte de la familia de las arañas saltarinas, destaca por sus colores vivos y sus grandes ojos, que les proporcionan una excelente visión. Estas pequeñas pero ágiles arañas son diurnas, cazando insectos mediante la vista y saltando sobre ellos para atraparlos. A menudo se les encuentra en jardines y cerca de las casas, donde realizan un control natural de plagas. A pesar de su apariencia intimidante, son completamente inofensivas para los humanos.",descriptionShort:"Las arañas saltarinas Habronattus son conocidas por su visión aguda y su capacidad para saltar largas distancias para capturar a sus presas.", source:'' },
+        ].map((spider, index) => (
+          <Col key={spider.title}>
+            <Card className="bg-dark text-white">
+              <Card.Img variant="top" src={spider.img} width="250" height="250" />
+              <Card.ImgOverlay>
+                <Card.Footer><br /><br /><center><h2>{spider.title}</h2>
+                  <button onClick={() => handleShow(spider.id)} className="btn bg-transparent">
+                    <a className="btnmore primary"><span>Más información</span></a>
+                  </button></center></Card.Footer>
+                <Modal show={show[spider.id]} onHide={() => handleClose(spider.id)} centered>
+                  <Modal.Header closeButton>
+                    <Modal.Title><h1>{spider.title}</h1><p><i><font color="red">{spider.modalTitle}</font></i></p></Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
                   <div class="mt-2 mb-2 ms-2 me-2 ">
                     <Row >
                       <Col>
-                        <img src={viudanegrapng} class="img-fluid" ></img>
+                        <img src={spider.modalImg} class="img-fluid" ></img>
                       </Col>
                       <Col>
-                        <p className="text-end">Las 'Latrodectus' son unas arañas con muy mala reputación, la viuda negra del sur tal vez sea la más reconocibles por la marca coloreada en forma de reloj de arena que luce en el abdomen. </p>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <p className="text-center">
-                        La mordedura de esta araña provoca mucho miedo porque es hasta 15 veces más potente que el de una serpiente de cascabel. En los humanos, la mordedura produce dolor muscular, náuseas y parálisis del diafragma que provoca dificultad para respirar; pero, al contrario de la creencia popular, la mayor parte de las personas que reciben un mordisco no sufren
-                         graves consecuencias y, ni muchos menos, mueren. Pero la mordedura sí que puede ser mortal, normalmente entre los más pequeños, los mayores y los enfermos. Afortunadamente las muertes son muy escasas; las arañas no son agresivas y muerden solo en defensa propia, como cuando alguien se sienta accidentalmente sobre ellas.</p>
-                     <br></br><p><i><font color="gray">National Geographic. (2023, 19 julio). Las «Latrodectus»  arañas con muy mala reputación. https://www.nationalgeographic.es/animales/viuda-negra</font></i></p>
-                      </Col>
-                    </Row></div>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" id="escaner" onClick={handleClose}>
-                    Regresar
-                  </Button>
-
-                </Modal.Footer>
-              </Modal>
-            </Card.ImgOverlay>
-
-          </Card>
-
-        </Col>
-        <Col>
-          <Card className="bg-dark text-white">
-            <Card.Img variant="top" src={violinista} width="250" height="250" />
-            <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Loxosceles</h2>
-
-                <button onClick={handleShow1} class="btn bg-transparent">
-
-                  <a class="btnmore primary">
-                    <span>Más información</span>
-                  </a>
-
-                </button></center></Card.Footer>
-
-              <Modal show={show1} onHide={handleClose1} centered>
-                <Modal.Header closeButton>
-                  <Modal.Title><h1>Loxosceles</h1><p><i><font color="red">Violinista/Araña de rincón</font></i></p></Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <div class="mt-2 mb-2 ms-2 me-2 ">
-                    <Row >
-                      <Col>
-                        <img src={violinistapng} class="img-fluid" ></img>
-                      </Col>
-                      <Col>
-                        <p className="text-end">Esta araña es de carácter más bien solitario y tímido. Prefiere como hábitat sitios de poco trasiego como desvanes, cobertizos o, sitios donde no hay mucho movimiento.
+                        <p className="text-end"> {spider.descriptionShort}
                         </p>
                       </Col>
                     </Row>
                     <Row>
                       <Col>
                         <p className="text-center">
-                        La mordedura de araña es sólo en defensa propia. Puede ocurrir durante todo el año, pero es más frecuente en primavera y verano. Su veneno Tiene propiedad necrotizante (muerte de tejido), hemolítica (muerte de los glóbulos rojos), vasculítica y coagulante. En la piel provoca graves alteraciones vasculares, con áreas de vasoconstricción y otras de hemorragia, que llevan rápidamente a la isquemia (falta de sangre) local y a la constitución de una placa gangrenosa.
+                        {spider.descriptionLong}
                           </p>
-                          <br></br><p><i><font color="gray">Pontificia Universidad Católica de Chile. (2017, October 6). La araña del rincón (LOXOSCELES LAETA) - Escuela de Medicina. Facultad De Medicina PUCDC. https://medicina.uc.cl/publicacion/la-arana-del-rincon-loxosceles-laeta/</font></i></p>
+                          <br></br><p><i><font color="gray">{spider.source}</font></i></p>
                       </Col>
                     </Row></div>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" id="escaner" onClick={handleClose1}>
-                    Regresar
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            </Card.ImgOverlay>
 
-          </Card>
-
-        </Col>
-
-
-
-        <Col>
-
-          <Card className="bg-dark text-white">
-            <Card.Img variant="top" src={argiope} width="250" height="250" />
-            <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Argiope</h2>
-
-                <button onClick={handleShow2} class="btn bg-transparent">
-
-                  <a class="btnmore primary">
-                    <span>Más información</span>
-                  </a>
-
-                </button></center></Card.Footer>
-
-              <Modal show={show2} onHide={handleClose2} centered>
-                <Modal.Header closeButton>
-                  <Modal.Title><h1>Argiope</h1><p><i><font color="red">Bandeada de Jardín</font></i></p></Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <div class="mt-2 mb-2 ms-2 me-2 ">
-                    <Row >
-                      <Col>
-                        <img src={argiopepng} width="170" height="170" class="img-fluid" ></img>
-                      </Col>
-                      <Col>
-                        <p className="text-end">Tiene un cuerpo negro y brillante con una forma de reloj de arena rojo en la zona ventral.
-                        </p>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <p className="text-center">
-                          La picadura de esta araña es venenosa. El género de arañas, al cual pertenece la viuda negra
-                          tiene la mayor cantidad de especies tóxicas conocidas.
-                        </p>
-                      </Col>
-                    </Row></div>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" id="escaner" onClick={handleClose2}>
-                    Regresar
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            </Card.ImgOverlay>
-
-          </Card>
-
-        </Col>
-
-
-
-
-        <Col>
-
-          <Card className="bg-dark text-white">
-            <Card.Img variant="top" src={imagenprueba} width="250" height="250" />
-            <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Brachypelma</h2>
-
-                <button onClick={handleShow3} class="btn bg-transparent">
-
-                  <a class="btnmore primary">
-                    <span>Más información</span>
-                  </a>
-
-                </button></center></Card.Footer>
-
-              <Modal show={show3} onHide={handleClose3} centered>
-                <Modal.Header closeButton>
-                  <Modal.Title><h1>Brachypelma</h1><p><i><font color="red">Tarántula</font></i></p></Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <div class="mt-2 mb-2 ms-2 me-2 ">
-                    <Row >
-                      <Col>
-                        <img src={tarantulapng} class="img-fluid" ></img>
-                      </Col>
-                      <Col>
-                        <p className="text-end">Es una especie nocturna que se adapta a cualquier ecosistema.
-                        </p>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <p className="text-center">
-                          INFO
-                          </p>
-                      </Col>
-                    </Row></div>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" id="escaner" onClick={handleClose3}>
-                    Regresar
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            </Card.ImgOverlay>
-
-          </Card>
-
-        </Col>
-
-
-
-        <Col>
-          <Card className="bg-dark text-white">
-            <Card.Img variant="top" src={pataslargas} width="250" height="250" />
-            <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Patas largas</h2>
-
-                <button onClick={handleShow4} class="btn bg-transparent">
-
-                  <a class="btnmore primary">
-                    <span>Más información</span>
-                  </a>
-
-                </button></center></Card.Footer>
-
-              <Modal show={show4} onHide={handleClose4} centered>
-                <Modal.Header closeButton>
-                  <Modal.Title><h1>Patas largas / Tigre</h1><p><i><font color="red">Scytodes globula</font></i></p></Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <div class="mt-2 mb-2 ms-2 me-2 ">
-                    <Row >
-                      <Col>
-                        <img src={patonapng} class="img-fluid" ></img>
-                      </Col>
-                      <Col>
-                        <p className="text-end">Las hembras tienen una longitud corporal de 9 mm; los machos son ligeramente más pequeños.
-                        </p>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <p className="text-center">
-                          Sus patas son de 5 a 6 veces de la longitud de su cuerpo (llegando a 7 cm de envergadura en las
-                          hembras). Acostumbra a vivir en el techo de las habitaciones, cuevas, garajes o las bodegas,
-                          lo que le da uno de sus nombres comunes. Se consideran beneficiosas en algunas partes de mundo
-                          porque se alimenta de insectos y arácnidos molestos dentro de las casas
-                        </p>
-                      </Col>
-                    </Row></div>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" id="escaner" onClick={handleClose4}>
-                    Regresar
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            </Card.ImgOverlay>
-
-          </Card>
-
-        </Col>
-
-
-
-        <Col>
-
-          <Card className="bg-dark text-white">
-            <Card.Img variant="top" src={linceverde} width="250" height="250" />
-            <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Peucetia </h2>
-
-                <button onClick={handleShow5} class="btn bg-transparent">
-
-                  <a class="btnmore primary">
-                    <span>Más información</span>
-                  </a>
-
-                </button></center></Card.Footer>
-
-              <Modal show={show5} onHide={handleClose5} centered>
-                <Modal.Header closeButton>
-                  <Modal.Title><h1>Peucetia </h1><p><i><font color="red">Lince Verde</font></i></p></Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <div class="mt-2 mb-2 ms-2 me-2 ">
-                    <Row >
-                      <Col>
-                        <img src={lincepng} class="img-fluid" ></img>
-                      </Col>
-                      <Col>
-                        <p className="text-end">Es una araña pequeña de color verde.
-                        </p>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <p className="text-center">
-                          Vive cazando sus presas sobre la vegetación de diversos ecosistemas de zonas abiertas,
-                          a bosques templados y zonas urbanas.
-                        </p>
-                      </Col>
-                    </Row></div>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" id="escaner" onClick={handleClose5}>
-                    Regresar
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            </Card.ImgOverlay>
-
-          </Card>
-
-        </Col>
-
-        <Col>
-
-          <Card className="bg-dark text-white">
-            <Card.Img variant="top" src={cebra} width="250" height="250" />
-            <Card.ImgOverlay>
-              <Card.Footer><br></br><br></br><center><h2>Habronattus</h2>
-
-                <button onClick={handleShow6} class="btn bg-transparent">
-
-                  <a class="btnmore primary">
-                    <span>Más información</span>
-                  </a>
-
-                </button></center></Card.Footer>
-
-              <Modal show={show6} onHide={handleClose6} centered>
-                <Modal.Header closeButton>
-                  <Modal.Title><h1>Habronattus</h1><p><i><font color="red">Araña Saltarina</font></i></p></Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <div class="mt-2 mb-2 ms-2 me-2 ">
-                    <Row >
-                      <Col>
-                        <img src={cebrapng} class="img-fluid" ></img>
-                      </Col>
-                      <Col>
-                        <p className="text-end">Es de color negro con rayas de color blanco crema de las patas las cuales le dan el nombre de cebra.
-                        </p>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <p className="text-center">
-                          La hembra es más grande que el macho. Tiene en sus patas un “arma secreta”
-                          que le permite adherirse a cualquier tipo de superficies.
-                        </p>
-                      </Col>
-                    </Row></div>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" id="escaner" onClick={handleClose6}>
-                    Regresar
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            </Card.ImgOverlay>
-
-          </Card>
-
-        </Col>
-
-        <Col>
-
-          <Card className="bg-dark text-white">
-            <Card.Img variant="top" src={centruroides} width="250" height="250" />
-            <Card.ImgOverlay>
-              <Card.Footer><br></br><center><h2>Centruroides</h2>
-
-                <button onClick={handleShow7} class="btn bg-transparent">
-
-                  <a class="btnmore primary">
-                    <span>Más información</span>
-                  </a>
-
-                </button></center></Card.Footer>
-
-              <Modal show={show7} onHide={handleClose7} centered>
-                <Modal.Header closeButton>
-                  <Modal.Title><h1>Centruroides</h1></Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <div class="mt-2 mb-2 ms-2 me-2 ">
-                    <Row >
-                      <Col>
-                        <img src={centruroidespng} class="img-fluid" ></img>
-                      </Col>
-                      <Col>
-                        <p className="text-end">Todos los miembros de la familia Amaurobiidae son nocturno.
-                        </p>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <p className="text-center">
-                          Tejido en un embudo, un peine en una textura deshilachado con un calamistrum, una fila de pelos
-                          tiesos en las piernas traseras. Como Velcro, gancho hebilla de insectos atrapado en la tela
-                          de pelo, que permite la captura de presas mucho más grandes que la araña sí mismo.
-                        </p>
-                      </Col>
-                    </Row></div>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" id="escaner" onClick={handleClose7}>
-                    Regresar
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            </Card.ImgOverlay>
-
-          </Card>
-
-        </Col>
-
-        <Col>
-
-<Card className="bg-dark text-white">
-  <Card.Img variant="top" src={vaejovis} width="250" height="250" />
-  <Card.ImgOverlay>
-    <Card.Footer><br></br><center><h2>Vaejovis</h2>
-
-      <button onClick={handleShow8} class="btn bg-transparent">
-
-        <a class="btnmore primary">
-          <span>Más información</span>
-        </a>
-
-      </button></center></Card.Footer>
-
-    <Modal show={show8} onHide={handleClose8} centered>
-      <Modal.Header closeButton>
-        <Modal.Title><h1>Vaejovis</h1></Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <div class="mt-2 mb-2 ms-2 me-2 ">
-          <Row >
-            <Col>
-              <img src={vaejovispng} class="img-fluid" ></img>
-            </Col>
-            <Col>
-              <p className="text-end">Todos los miembros de la familia Amaurobiidae son nocturno.
-              </p>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <p className="text-center">
-                Tejido en un embudo, un peine en una textura deshilachado con un calamistrum, una fila de pelos
-                tiesos en las piernas traseras. Como Velcro, gancho hebilla de insectos atrapado en la tela
-                de pelo, que permite la captura de presas mucho más grandes que la araña sí mismo.
-              </p>
-            </Col>
-          </Row></div>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" id="escaner" onClick={handleClose8}>
-          Regresar
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  </Card.ImgOverlay>
-
-</Card>
-
-</Col>
-
-
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" id="escaner" onClick={() => handleClose(spider.id)}>
+                      Regresar
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+              </Card.ImgOverlay>
+            </Card>
+          </Col>
+        ))}
       </Row>
+<br></br>
+      {/* Sección de Alacranes */}
+      <h2 style={{ color: 'white', textAlign: 'center' }}>Alacranes</h2>
+    <Row xs={1} md={4} className="g-4 justify-content-center">
+        {[
+          { id: 7, img: centruroides, title: 'Centruroides', modalImg: centruroidespng, modalTitle: 'Centruroides', descriptionLong:"Los Centruroides son un género de alacranes que se encuentran principalmente en el sur de Estados Unidos, México y Centroamérica. Algunas especies de este género, como el Centruroides sculpturatus, son conocidas por poseer un veneno que puede causar síntomas severos en humanos, incluyendo dolor intenso, entumecimiento y en casos raros, complicaciones graves. A pesar de su reputación, la mayoría de las picaduras se manejan con éxito mediante atención médica.",descriptionShort:"Los alacranes del género Centruroides son conocidos por su veneno potente, siendo algunos capaces de causar problemas de salud significativos en humanos.", source:'' },
+          { id: 8, img: vaejovis, title: 'Vaejovis', modalImg: vaejovispng, modalTitle: 'Vaejovis', descriptionLong:"El género Vaejovis incluye una amplia variedad de alacranes distribuidos por Norteamérica. Estas especies suelen ser de tamaño pequeño a mediano y poseen un veneno que, aunque puede causar dolor y malestar, raramente es considerado peligroso para los seres humanos. Vaejovis es un género estudiado activamente por su diversidad y adaptabilidad a diferentes entornos, desde desiertos hasta montañas.",descriptionShort:"Vaejovis es un género diverso de alacranes, con especies que varían considerablemente en tamaño y toxicidad, pero generalmente menos peligrosos para los humanos.", source:'' },
+        ].map((scorpion, index) => (
+          <Col key={scorpion.title}>
+            <Card className="bg-dark text-white">
+              <Card.Img variant="top" src={scorpion.img} width="250" height="250" />
+              <Card.ImgOverlay>
+                <Card.Footer><br /><br /><center><h2>{scorpion.title}</h2>
+                  <button onClick={() => handleShow(scorpion.id)} className="btn bg-transparent">
+                    <a className="btnmore primary"><span>Más información</span></a>
+                  </button></center></Card.Footer>
+                <Modal show={show[scorpion.id]} onHide={() => handleClose(scorpion.id)} centered>
+                  <Modal.Header closeButton>
+                    <Modal.Title><h1>{scorpion.title}</h1></Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                  <div class="mt-2 mb-2 ms-2 me-2 ">
+                    <Row >
+                      <Col>
+                        <img src={scorpion.modalImg} class="img-fluid" ></img>
+                      </Col>
+                      <Col>
+                        <p className="text-end"> {scorpion.descriptionShort}
+                        </p>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <p className="text-center">
+                        {scorpion.descriptionLong}
+                          </p>
+                          <br></br><p><i><font color="gray">{scorpion.source}</font></i></p>
+                      </Col>
+                    </Row></div>
 
-      <br></br> <br></br>
-
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" id="escaner" onClick={() => handleClose(scorpion.id)}>
+                      Regresar
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+              </Card.ImgOverlay>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+      <br></br>
+      <br /><br />
     </>
-
-  )
-}
+  );
+};

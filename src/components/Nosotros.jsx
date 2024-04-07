@@ -62,7 +62,7 @@ export const Nosotros = () => {
         </div>
         <div class="team-content">
           <h3 class="name">Daniela Enriquez</h3>
-          <h4 class="title">UX/UI Designer</h4>
+          <h4 class="title">Web Developer</h4>
         </div>
         <ul class="social">
           <li><a href="" aria-hidden="true"><i><FaLinkedinIn size="1em" /></i></a></li>

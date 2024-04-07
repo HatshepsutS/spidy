@@ -11,14 +11,13 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import imagenprueba from '../images/imagenprueba.jpg';
 import pataslargas from '../images/pataslargas.jpg';
-import eremobatespng from '../images/eremobatesfondob.jpg';
 import viudanegrapng from '../images/viudanegrafb.jpg';
 import violinistapng from '../images/violinistafb.jpeg';
 import cebrapng from '../images/cebrafb.jpg';
 import lincepng from '../images/lincefb.jpg';
-import amaupng from '../images/amaufb.jpg';
-
-
+import vaejovis from '../images/vaejovispng.jpg';
+import argiope from '../images/argiopepng.jpg';
+import centruroides from '../images/centruroidespng.jpg';
 export const Detectar = () => {
     const [option, setOption] = useState(false);//false => render module  Escanear | true => render module CameraCapture
 
@@ -58,7 +57,7 @@ export const Detectar = () => {
 
 
     const getInfoSpider = (prediction) => {
-        const imagenes = [amaupng, cebrapng, eremobatespng, lincepng, pataslargas, imagenprueba, violinistapng, viudanegrapng];
+        const imagenes = [argiope,imagenprueba,centruroides,cebrapng, viudanegrapng, violinistapng,lincepng,  pataslargas,vaejovis];
         const data = { idSpider: prediction + 1 };
         axios.get('/predictions/infoSpider', { params: data }).then((response) => {
             setInfoSpider({

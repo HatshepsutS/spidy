@@ -2,55 +2,61 @@ import React from "react";
 export const UserData = [
     {
       id: 1,
-      especie: 'Tarántula',
+      especie: 'Argiope',
       cr: 0,
      
     },
     {
       id: 2,
-      especie: 'Eremobates',
+      especie: 'Brachypelma',
       cr: 0,
    
     },
     {
       id: 3,
-      especie: 'Lince V',
+      especie: 'Centruroides',
       cr: 0,
      
     },
     {
       id: 4,
-      especie: 'Violinista',
+      especie: 'Habranattus',
       cr: 0,
      
     },
     {
       id: 5,
-      especie: 'Cebra',
+      especie: 'Latrodectus',
       cr: 0,
 
     },
 
     {
         id: 6,
-        especie: 'Viuda',
+        especie: 'Loxosceles',
         cr: 0,
        
       },
       {
         id: 7,
-        especie: 'Patona',
+        especie: 'Peucetia',
         cr: 0,
      
       },
     
       {
         id: 8,
-        especie: 'Amauris',
+        especie: 'Physocyclus',
         cr: 0,
        
       },
-    
+      {
+        id: 9,
+        especie: 'Vaejovis',
+        cr: 0,
+       
+      },
+        
 
 
   ];

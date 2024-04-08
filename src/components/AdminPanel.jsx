@@ -20,15 +20,15 @@ import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto"; //no borrar parece que no lo usa pero si lo quitas muere
 import Form from 'react-bootstrap/Form';
 import { ReporteSpider} from "./ReporteArania";
-import ViolinistaPic from '../images/rP/r2Vio.jpg';
-import AmauroPic from '../images/rP/r2Amaurobius.jpg';
-import EremobatesPic from '../images/rP/r2Eremobates.jpg';
-import LinceVerdePic from '../images/rP/r2LinceVerde.jpg';
-import PatasLargasPic from '../images/rP/r2PatasLargas.jpg';
-import CebraPic from '../images/rP/r2SCebra.jpg';
-import TarantulaPic from '../images/rP/r2Tar.jpg';
-import ViudaPic from '../images/rP/r2Viuda.jpg';
-
+import ViolinistaPic from '../images/rP/r2Vio.png';
+import ArgiopePic from '../images/rP/r2Argiope.png';
+import CentruroidePic from '../images/rP/r2Centruroides.png';
+import LinceVerdePic from '../images/rP/r2LinceVerde.png';
+import PatasLargasPic from '../images/rP/r2PatasLargas.png';
+import CebraPic from '../images/rP/r2SCebra.png';
+import TarantulaPic from '../images/rP/r2Tar.png';
+import ViudaPic from '../images/rP/r2Viuda.png';
+import VaejovisPic from '../images/rP/r2Vaejovis.png';
 
 
 
@@ -109,40 +109,44 @@ export const AdminPanel = (props) => {
   const handleChange = e => {
     switch(e.target.value) {
       case '1':
-        setbanner(ViolinistaPic);
-        setspidernombre('Violinista');
+        setbanner(ArgiopePic);
+        setspidernombre('Argiope');
       break;
       case '2':
-        setbanner(LinceVerdePic);
-        setspidernombre('LinceVerde');
+        setbanner(TarantulaPic);
+        setspidernombre('Brachypelma');
       break;
       case '3':
-        setbanner(PatasLargasPic);
-        setspidernombre('PatasLargas');
+        setbanner(CentruroidePic);
+        setspidernombre('Centruroides');
       break;
       case '4':
         setbanner(CebraPic);
-        setspidernombre('Cebra');
+        setspidernombre('Habranattus');
       break;
       case '5':
         setbanner(ViudaPic);
-        setspidernombre('ViudaNegra');
+        setspidernombre('Latrodectus');
       break;
       case '6':
-        setbanner(AmauroPic);
-        setspidernombre('Amaurobius Similis');
+        setbanner(ViolinistaPic);
+        setspidernombre('Loxosceles');
       break;
       case '7':
-        setbanner(EremobatesPic);
-        setspidernombre('Eremobates');
+        setbanner(LinceVerdePic);
+        setspidernombre('Peucetia');
       break;
       case '8':
-        setbanner(TarantulaPic);
-        setspidernombre('Tarantula');
+        setbanner(PatasLargasPic);
+        setspidernombre('Physocyclus');
+      break;
+      case '9':
+        setbanner(VaejovisPic);
+        setspidernombre('Vaejovis');
       break;
       default:
-        setbanner(TarantulaPic);  
-        setspidernombre('Tarantula');
+        setbanner(VaejovisPic);
+        setspidernombre('Vaejovis');
         break;
     }
     const chart3 = pastel2.current;
@@ -198,7 +202,7 @@ export const AdminPanel = (props) => {
         {
           label: "Cantidad de registros",
           data: result.map((row) => row.CantidadEncuestas),
-          backgroundColor: ["#cd0c36", "#000000", "#ee4242", "#fd7b7b", "#565656", "#989898", "#ffffff", "#670f22",],
+          backgroundColor: ["#cd0c36", "#000000", "#ee4242", "#fd7b7b", "#565656", "#989898", "#ffffff", "#670f22","#cd0c36",],
           borderColor: "black",
           borderWidth: 1,
         },
@@ -210,7 +214,7 @@ export const AdminPanel = (props) => {
         {
           label: "Calificación promedio",
           data: satisA.map((row) => row.PromedioEncuestas),
-          backgroundColor: ["#cd0c36", "#000000", "#ee4242", "#fd7b7b", "#565656", "#989898", "#ffffff", "#670f22",],
+          backgroundColor: ["#cd0c36", "#000000", "#ee4242", "#fd7b7b", "#565656", "#989898", "#ffffff", "#670f22","#cd0c36",],
           borderColor: "black",
           borderWidth: 1,
         },
@@ -247,7 +251,7 @@ export const AdminPanel = (props) => {
       {
         label: "Cantidad de registros",
         data: UserData.map((row) => row.CantidadEncuestas),
-        backgroundColor: ["#cd0c36", "#000000", "#ee4242", "#fd7b7b", "#565656", "#989898", "#ffffff", "#670f22",],
+        backgroundColor: ["#cd0c36", "#000000", "#ee4242", "#fd7b7b", "#565656", "#989898", "#ffffff", "#670f22","#cd0c36",],
         borderColor: "black",
         borderWidth: 1,
       },
@@ -259,7 +263,7 @@ export const AdminPanel = (props) => {
       {
         label: "Cantidad de registros",
         data: UserData.map((row) => row.CantidadEncuestas),
-        backgroundColor: ["#cd0c36", "#000000", "#ee4242", "#fd7b7b", "#565656", "#989898", "#ffffff", "#670f22",],
+        backgroundColor: ["#cd0c36", "#000000", "#ee4242", "#fd7b7b", "#565656", "#989898", "#ffffff", "#670f22","#cd0c36",],
         borderColor: "black",
         borderWidth: 1,
       },
@@ -272,7 +276,7 @@ export const AdminPanel = (props) => {
       {
         label: "Cantidad de registros",
         data: UserData.map((row) => row.CantidadEncuestas),
-        backgroundColor: ["#cd0c36", "#000000", "#ee4242", "#fd7b7b", "#565656", "#989898", "#ffffff", "#670f22",],
+        backgroundColor: ["#cd0c36", "#000000", "#ee4242", "#fd7b7b", "#565656", "#989898", "#ffffff", "#670f22","#cd0c36",],
         borderColor: "black",
         borderWidth: 1,
       },
@@ -322,7 +326,7 @@ export const AdminPanel = (props) => {
 
               <Col>
                 <div className='admindiv'>
-                  <h1 class="text-center" >Puntuación por araña</h1>
+                  <h1 class="text-center" >Puntuación por artrópodo</h1>
                   <div className='piechartdiv'>
                     <p class="text-center"> <Doughnut data={userDataPastel2} ref={pastel2} /></p>
                     <p class="text-center">Donde 3 equivale a la puntuación máxima y 1 a la puntuación mínima</p>
@@ -367,7 +371,7 @@ export const AdminPanel = (props) => {
                     <button onClick={handleClick} class="btn btn-sq  btn-danger"  ><i><FaFileDownload size="5em" /></i><br></br><h3>Reporte general</h3></button>
                     </div>
                     <div class="col" >
-                    <button onClick={showgenerarReporte} class="btn btn-sq  btn-danger " ><i><FaSpider size="5em" /></i><br></br><h3>Reporte por  araña</h3></button>
+                    <button onClick={showgenerarReporte} class="btn btn-sq  btn-danger " ><i><FaSpider size="5em" /></i><br></br><h3>Reporte por artrópodo</h3></button>
                     </div>
 
                     <div class="col" >
@@ -393,15 +397,16 @@ export const AdminPanel = (props) => {
 
                       <Modal.Body>
                       <Form.Select aria-label="Default select example"  onChange={(e) => handleChange(e)}>
-                     <option> <p>Seleccione una araña</p></option>
-                            <option value="1"><p>Violinista</p></option>
-                            <option value="2"><p>Lince Verde</p></option>
-                            <option value="3"><p>Patas Largas</p></option>
-                            <option value="4"><p>Cebra</p></option>
-                            <option value="5"><p>Viuda Negra</p></option>
-                            <option value="6"><p>Amaurobius Similis</p></option>
-                            <option value="7"><p>Eremobates</p></option>
-                            <option value="8"><p>Tarántula</p></option>
+                     <option> <p>Seleccione un artrópodo</p></option>
+                            <option value="1"><p>Argiope</p></option>
+                            <option value="2"><p>Brachypelma</p></option>
+                            <option value="3"><p>Centruroides</p></option>
+                            <option value="4"><p>Habranattus</p></option>
+                            <option value="5"><p>Latrodectus</p></option>
+                            <option value="6"><p>Loxosceles</p></option>
+                            <option value="7"><p>Peucetia</p></option>
+                            <option value="8"><p>Physocyclus</p></option>
+                            <option value="9"><p>Vaejovis</p></option>
 
                             <br></br> <br></br>
                        </Form.Select>
@@ -413,7 +418,7 @@ export const AdminPanel = (props) => {
                       centered >
                       <Modal.Header closeButton>
 
-                        <Modal.Title>  <h1 class='text-center'>Reporte de la araña {spidernombre}</h1> </Modal.Title>
+                        <Modal.Title>  <h1 class='text-center'>Reporte del artrópodo{spidernombre}</h1> </Modal.Title>
 
                       </Modal.Header>
 

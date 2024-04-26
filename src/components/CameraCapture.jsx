@@ -30,14 +30,14 @@ export const CameraCapture = (props) => {
     const context = canvas.getContext('2d');
     const video = document.querySelector('video');
     
-    // Draw the current frame from the video on the canvas
+    // Dibuja el fotograma actual del video en el canvas
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
     
-    // Convert the canvas content to a data URL and set it as photo
+    // Convierte el contenido del canvas a una URL de datos y lo establece como foto
     const dataUrl = canvas.toDataURL('image/jpeg');
     setPhoto(dataUrl);
     
-    // Also convert the canvas content to a blob and pass it to the parent component
+    // Convierte el condenido del canvas a un blob y lo pasa al componente padre
     canvas.toBlob(function (blob) {
       props.setImage(blob);
     }, 'image/jpeg');

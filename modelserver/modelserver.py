@@ -34,32 +34,19 @@ def predict():
     
     if file:
         # Convertir el archivo cargado en una imagen PIL y redimensionarla
-        img = Image.open(file.stream)
-
+        img = Image.open(file.stream).convert('RGB')
         img = np.array(img).astype(float)/255
-
         img = cv2.resize(img, (512,512))
        
-        # image = image.resize((512, 512))
-        # image_array = np.asarray(image)
-        # image_array = np.expand_dims(image_array, axis=0)
-        
-        # Imprimir el array de la imagen para depuración
-        # print("Image array shape:", image_array.shape)
-        
-        # Realizar la predicción
         print("Realizando predicción...")
         prediction = model.predict(img.reshape(-1, 512, 512, 3))[0]
-        # prediction = model.predict(image_array)[0]  # Asume que el modelo devuelve un batch de predicciones
-        print("Predicción completada.")
         
         # Crear un diccionario que asocie cada nombre de clase con su probabilidad
         prediction_dict = {class_names[i]: float(prediction[i]) for i in range(len(class_names))}
         
         # Ordenar el diccionario por probabilidades en orden descendente
         sorted_predictions = dict(sorted(prediction_dict.items(), key=lambda item: item[1], reverse=True))
-        
-        # Imprimir la predicción ordenada para depuración
+
         print("Predicciones ordenadas:", sorted_predictions)
         
         # Devuelve el diccionario ordenado como parte de la respuesta JSON
@@ -67,8 +54,18 @@ def predict():
         predicted_class_name = class_names[predicted_class_index]
         predicted_class_probability = prediction[predicted_class_index]
         
-        # Devolver el nombre de la clase y la probabilidad asociada
+        if predicted_class_probability < 0.90:
+            # Si la probabilidad es menor a 0.90, considerar la predicción como inconclusa
+            return jsonify({
+                'status': 'inconclusive',
+                'predicted_class_index': int(predicted_class_index), 
+                'predicted_class': predicted_class_name,
+                'probability': float(predicted_class_probability)
+            })
+        
+        # Devolver el nombre de la clase y la probabilidad asociada si es >= 0.90
         return jsonify({
+            'status': 'success',
             'predicted_class_index': int(predicted_class_index), 
             'predicted_class': predicted_class_name,
             'probability': float(predicted_class_probability)

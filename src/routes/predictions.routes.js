@@ -54,8 +54,12 @@ router.post('/predict', fileUpload, (req, res) => {
                     return res.status(500).send('Error al ejecutar la consulta');
                 }
                 let id = Object.values(JSON.parse(JSON.stringify(rows)));
-                // res.send(id[1][0]); // Asegúrate de que esta línea corresponde correctamente a cómo deseas enviar el ID
-                res.json({id: id[1][0].ID, prediction: response.data.predicted_class_index});
+                // res.send(id[1][0]); 
+                res.json({
+                    status: response.data.status,
+                    id: id[1][0].ID, 
+                    prediction: response.data.predicted_class_index
+                });
             });
         });
     }).catch(error => {

@@ -1,10 +1,8 @@
-import * as tf from '@tensorflow/tfjs';
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Escanear } from './Escanear';
 import { CameraCapture } from './CameraCapture';
 import { Encuesta } from './Encuesta';
-
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -18,46 +16,44 @@ import lincepng from '../images/lincefb.jpg';
 import vaejovis from '../images/vaejovispng.jpg';
 import argiope from '../images/argiopepng.jpg';
 import centruroides from '../images/centruroidespng.jpg';
-export const Detectar = () => {
-    const [option, setOption] = useState(false);//false => render module  Escanear | true => render module CameraCapture
 
+export const Detectar = () => {
+    const [option, setOption] = useState(false);
     const [image, setImage] = useState(null);
     const [fileP, setFileP] = useState(null);
     const [idPrediction, setIdPrediction] = useState(null);
     const [result, setResult] = useState(null);
-
     const [infoSpider, setInfoSpider] = useState({
         nombre: '',
         impMedica: '',
         descripcion: '',
         img: null
     });
-
-
     const [show, setShow] = useState(false);
+    const [showError, setShowError] = useState(false);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleCloseError = () => setShowError(false);
+    const handleShowError = () => setShowError(true);
 
     async function predict() {
         const formData = new FormData();
         formData.append('file', image);
 
         axios.post('/predictions/predict', formData).then((response) => {
-            setIdPrediction(response.data.id);
-            console.log(response.data.id)
-            setResult(response.data.prediction);
-            getInfoSpider(response.data.prediction);
-            handleShow();
+            if (response.data.status === 'success') {
+                setIdPrediction(response.data.id);
+                setResult(response.data.prediction);
+                getInfoSpider(response.data.prediction);
+                setShow(true);
+            } else {
+                handleShowError();
+            }
         });
     }
 
-
-
-
-
     const getInfoSpider = (prediction) => {
-        const imagenes = [argiope,imagenprueba,centruroides,cebrapng, viudanegrapng, violinistapng,lincepng,  pataslargas,vaejovis];
+        const imagenes = [argiope, imagenprueba, centruroides, cebrapng, viudanegrapng, violinistapng, lincepng, pataslargas, vaejovis];
         const data = { idSpider: prediction + 1 };
         axios.get('/predictions/infoSpider', { params: data }).then((response) => {
             setInfoSpider({
@@ -69,8 +65,6 @@ export const Detectar = () => {
         });
     };
 
-
-
     return (
         <div>
             <Modal show={show} onHide={handleClose} centered>
@@ -78,25 +72,39 @@ export const Detectar = () => {
                     <Modal.Title><h1>{infoSpider.nombre}</h1><p><i>{infoSpider.impMedica ? <font color="red">Importancia médica</font> : <font color="green">Sin importancia médica</font>}</i></p></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div class="mt-2 mb-2 ms-2 me-2 ">
-                        <Row ><Col></Col><Col><img src={infoSpider.img} class="img-fluid" ></img></Col><Col></Col></Row>
-                        <Row>
-                            <Col>
-                                <p className="text-center">{infoSpider.descripcion}</p>
-                            </Col>
-                        </Row>
-                    </div>
+                    <Row><Col></Col><Col><img src={infoSpider.img} className="img-fluid" alt="Spider"></img></Col><Col></Col></Row>
+                    <Row>
+                        <Col>
+                            <p className="text-center">{infoSpider.descripcion}</p>
+                        </Col>
+                    </Row>
                     <Encuesta idPrediction={idPrediction} />
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" id="escaner" onClick={handleClose}>
+                    <Button variant="secondary" onClick={handleClose}>
                         Regresar
                     </Button>
                 </Modal.Footer>
             </Modal>
+
+            <Modal show={showError} onHide={handleCloseError} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>Error</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    No se identidicó ninguna araña/alacrán, intenta con otra imagen.
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseError}>
+                        Cerrar
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
             <font color="white">
                 <h1 className='text-center'>ANALIZADOR DE ARAÑAS</h1>
-                <h3 className='text-center'>Toma la fotografía de la araña que quieras identificar o bien, sube una desde tu dispositivo</h3> <br></br></font>
+                <h3 className='text-center'>Toma la fotografía de la araña que quieras identificar o bien, sube una desde tu dispositivo</h3><br></br>
+            </font>
             <div className="btn-group">
                 <button
                     type="button"
@@ -112,14 +120,8 @@ export const Detectar = () => {
                 </button>
             </div>
             <div className="boxImagePhoto">
-
                 {option ? <CameraCapture setFileP={setFileP} setImage={setImage} predict={predict} /> : <Escanear setFileP={setFileP} setImage={setImage} predict={predict} />}
-
-
             </div>
-
         </div>
     );
-
-
-}
+};

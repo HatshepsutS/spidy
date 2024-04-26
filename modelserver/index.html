@@ -19,7 +19,7 @@
             let formData = new FormData();
             formData.append('file', document.getElementById('imageInput').files[0]);
 
-            fetch('http://localhost:3000/predictions/savePrediction', { // Changed to localhost:8000/predict
+            fetch('http://127.0.0.1:8000/predict', { // Changed to localhost:8000/predict
                 method: 'POST',
                 body: formData,
             })

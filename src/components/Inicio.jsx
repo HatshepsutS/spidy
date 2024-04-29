@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from 'react-bootstrap/Button';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import mainPrueba from '../images/mainPage.png';
+import mainPrueba from '../images/mainPage2.png';
 import logoSP from '../images/SpydyLogo.svg';
 export const Inicio = () => {
 
@@ -20,7 +20,7 @@ export const Inicio = () => {
           <Row>
             <Col md={12}>
               <div className="text-center">
-                <h1><font color="white">¿Qué es?</font> </h1>
+                <h1><font color="white">¡Bienvenido explorador! </font> </h1>
               </div>
               <div className="text-center">
               <img src={logoSP} alt="LogoSP" style={{ width: '60%', height: 'auto' }} />
@@ -30,9 +30,13 @@ export const Inicio = () => {
           <Row>
             <Col md={12} className="text-container">
             <div class="text-center">
+           <font color="white"><br></br> <h5>Es una herramienta gratuita desarrollada por alumnos de la Escuela Superior de Cómputo (IPN) que busca facilitar la  <b>identificación de arañas y alacranes venenosos en México. </b> 
+            ¿Encontraste alguno?</h5>  </font> <br></br>
         <Button id="escaner" size="md" href="/Detectar">
           ¡Prueba la aplicación aquí!
         </Button>
+        <br></br><br></br><br></br><br></br>
+        <font color="white"><i>Nota: Spidy solo es una herramienta de apoyo, no sustituye la atención médica</i></font>
         </div>
 
             </Col>

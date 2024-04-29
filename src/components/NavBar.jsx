@@ -104,12 +104,8 @@ function NavBar(props) {
               <Link className="nav-link" to="/Nosotros">Contacto</Link>
             </Nav>
             <Nav>
-<<<<<<< Updated upstream
               <button class="btn btn-outline-secondary" onClick={handleShow}>Administrador</button>
-=======
-              <button onClick={handleShow}><font color="#22252A">Administrador</font></button>
->>>>>>> Stashed changes
-
+             
               <Modal show={show} onHide={handleClose} center styles={{ overlay: { background: "#e13743" } }} >
                 <Modal.Header closeButton>
                   <div class="mt-2 mb-2 ms-3 me-2 ">

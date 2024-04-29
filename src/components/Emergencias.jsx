@@ -75,12 +75,19 @@ Las mordidas de algunas arañas, como la araña viuda negra (Lactrodectus) y la 
         <Container>
           <Row className="p-3 mb-2 bg-danger text-white">
             <Col>
-              <h2>Números de Emergencia</h2>
+              <h2>Números de emergencia</h2>
               <p>En caso de que te encuentres en una situación de emergencia, aquí tienes algunos números que podrían ser de utilidad:</p>
               <ul>
-                <li>Emergencias Médicas - 911</li>
-                <li>Centro de Información Toxicológica - 0800-222-9911</li>
-                <li>Asistencia al Turista - 0800-999-2838</li>
+
+              <li> Emergencias – 911</li>
+              <li>Bomberos (CDMX) – 55 8957 2692</li>
+              <li>   Cruz roja mexicana – 55 1084 9000</li>
+              <li>   Protección civil – 55 51 28 00 00</li>
+              <li>    Policía federal – 088</li>
+              <li>     Capufe – 074</li>
+              <li>Ángeles verdes – 078</li>
+
+                
               
               </ul>
               <p>Recuerda que estos números pueden variar dependiendo de tu ubicación geográfica. Siempre es una buena idea tener a mano los números específicos de tu localidad o país.</p>

@@ -104,7 +104,7 @@ function NavBar(props) {
               <Link className="nav-link" to="/Nosotros">Contacto</Link>
             </Nav>
             <Nav>
-              <button class="loginhide color" onClick={handleShow}><font color="#22252A">,</font></button>
+              <button id="escaner" onClick={handleShow}> <font color="white">Administrador</font></button>
 
               <Modal show={show} onHide={handleClose} center styles={{ overlay: { background: "#e13743" } }} >
                 <Modal.Header closeButton>

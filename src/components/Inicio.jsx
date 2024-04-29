@@ -1,40 +1,45 @@
 import React from 'react';
 
 import Button from 'react-bootstrap/Button';
-
-import Prueba2HomeSp from '../images/Prueba2HomeSp.png';
-
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import mainPrueba from '../images/mainPage.png';
+import logoSP from '../images/SpydyLogo.svg';
 export const Inicio = () => {
 
   return (
     
     <>
-   <div class="container">
-   <div class="row mt-4">
-   <div class="col-md-4"> 
-   </div>
-   <img src={Prueba2HomeSp} class="img-responsive"  id="imgHome" ></img>
    
-   </div>
-   </div>
-   
- 
-   
-    <div id="text-over-img ">
-      
-        <h2 class="text-center"><font color="white">¿Te preocupa la araña que encontraste hoy en tu casa?</font></h2>
-        <h2 class="text-center"><font color="white">¿Me puede hacer daño?</font></h2>
-        <br></br>
-
-        <div class="text-center">
+   <Container fluid>
+      <Row className="mb-4">
+        <Col md={6} style={{ padding: 0 }}>
+         
+          <img src={mainPrueba} alt="Main" style={{ width: '100%', height: 'auto' }} />
+        </Col>
+        <Col md={6} style={{ padding: 5  }}>
+          <Row>
+            <Col md={12}>
+              <div className="text-center">
+                <h1><font color="white">¿Qué es?</font> </h1>
+              </div>
+              <div className="text-center">
+              <img src={logoSP} alt="LogoSP" style={{ width: '60%', height: 'auto' }} />
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12} className="text-container">
+            <div class="text-center">
         <Button id="escaner" size="md" href="/Detectar">
           ¡Prueba la aplicación aquí!
         </Button>
         </div>
 
-      </div><br></br>
-      
-   
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </Container>
     
       </>
     

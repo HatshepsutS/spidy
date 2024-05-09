@@ -60,6 +60,7 @@ export const InformacionArana = () => {
           value={filter}
         />
         <br /><br />
+        <h5><center><font color="white">Es importante destacar que Spidy tiene como fin la identificación precisa de las especies de arañas y alacranes más comunes en los estados de Jalisco, Michoacán, Estado de México y Ciudad de México (enlistadas a continuación), que contribuirá a la prevención de riesgos en la salud pública.  </font></center></h5>
       </div>
 
       <h2 style={{ color: 'white', textAlign: 'center' }}>Arañas</h2>

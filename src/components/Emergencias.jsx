@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
 import picaduraarania from '../images/picaduraarania.jpg';
 import picaduraalacran from '../images/picaduraalacran.jpg';
-
+import Table from 'react-bootstrap/Table';
 export const Emergencias = () => {
   return (
     <>
@@ -76,22 +76,72 @@ Las mordidas de algunas arañas, como la araña viuda negra (Lactrodectus) y la 
           <Row className="p-3 mb-2 bg-danger text-white">
             <Col>
               <h2>Números de emergencia</h2>
-              <p>En caso de que te encuentres en una situación de emergencia, aquí tienes algunos números que podrían ser de utilidad:</p>
-              <ul>
-
-              <li> Emergencias – 911</li>
-              <li>Bomberos (CDMX) – 55 8957 2692</li>
-              <li>   Cruz roja mexicana – 55 1084 9000</li>
-              <li>   Protección civil – 55 51 28 00 00</li>
-              <li>    Policía federal – 088</li>
-              <li>     Capufe – 074</li>
-              <li>Ángeles verdes – 078</li>
-
-                
+              <div className="container mt-4">
+      <h4>Números Generales</h4>
+      <p>  
+      <Table>
+        <thead>
+          <tr>
+            <th>Emergencias Generales</th>
+            <th>Denuncia Anónima</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>911</td>
+            <td>089</td>
+          </tr>
+        </tbody>
+      </Table>
+      </p>
+      <h4>Números Específicos por Estado</h4>
+      
+      <p>
+      <Table>
+        <thead >
+          <tr>
+            <th>Estado</th>
+            <th>Bomberos</th>
+            <th>Cruz Roja</th>
+            <th>Protección Civil</th>
+            <th>Secretaría de Medio Ambiente</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jalisco</td>
+            <td>(33) 3619 5152</td>
+            <td>(33) 3613 6060</td>
+            <td>(33) 3030 8250</td>
+            <td>(33) 3030 4500</td>
+          </tr>
+          <tr>
+            <td>Michoacán</td>
+            <td>(443) 322 2170</td>
+            <td>(443) 312 1212</td>
+            <td>(443) 322 5600</td>
+            <td>(443) 314 0334</td>
+          </tr>
+          <tr>
+            <td>Estado de México</td>
+            <td>(722) 217 8121</td>
+            <td>(722) 214 5911</td>
+            <td>(722) 213 7000</td>
+            <td>(722) 275 6800</td>
+          </tr>
+          <tr>
+            <td>Ciudad de México</td>
+            <td>(55) 5768 3700</td>
+            <td>(55) 5557 5757</td>
+            <td>(55) 5683 2222</td>
+            <td>(55) 5278 9931</td>
+          </tr>
+        </tbody>
+      </Table>
+      </p>
+    </div>
               
-              </ul>
-              <p>Recuerda que estos números pueden variar dependiendo de tu ubicación geográfica. Siempre es una buena idea tener a mano los números específicos de tu localidad o país.</p>
-            </Col>
+              </Col>
           </Row>
         </Container>
       </div>

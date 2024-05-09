@@ -117,7 +117,7 @@ function NavBar(props) {
                   <div class="mt-1 mb-2.5 ms-4 me-4 ">
 
                     <Form.Group className="mb-3" >
-                      <Form.Control type="password" placeholder="ID Key" ref={inputRef} id="message" />
+                      <Form.Control type="password" placeholder="Clave de administrador" ref={inputRef} id="message" />
                     </Form.Group>
                     <div class="text-center">
                       <Button variant="danger" id="escaner" onClick={handleClick}>

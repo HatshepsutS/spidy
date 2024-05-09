@@ -102,8 +102,10 @@ export const Detectar = () => {
             </Modal>
 
             <font color="white">
-                <h1 className='text-center'>ANALIZADOR DE ARAÑAS</h1>
-                <h3 className='text-center'>Toma la fotografía de la araña que quieras identificar o bien, sube una desde tu dispositivo</h3><br></br>
+            <center>
+                <h1 className='text-center'>DETECTOR DE ARAÑAS Y ALACRANES</h1>
+                <h3 className='text-center'>Toma la fotografía de la araña que quieras identificar o bien, sube una desde tu dispositivo. </h3> <h4>Se recomienda tomar la imagen con una distancia aproximadamente de 20 cm del artrópodo</h4><br></br>
+                </center> 
             </font>
             <div className="btn-group">
                 <button

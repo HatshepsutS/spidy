@@ -596,3 +596,14 @@ Nav {
     transform: translate(3px, 3px);
     outline: none;
 }
+
+#buscador {
+    margin: auto;
+    width: 50%;
+}
+
+@media (max-width:767px) {
+    #buscador {
+        width: 85%;
+    }
+}

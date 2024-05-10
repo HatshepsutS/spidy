@@ -377,7 +377,7 @@ export const AdminPanel = (props) => {
                     <div class="col" >
                     <a href='/admin/descargarImagenes'>
                   <button className="btn btn-sq  btn-danger" href='/admin/descargarImagenes'>
-                    <i><BsFileZipFill size="4em" /></i><br></br><h3>Descargar dataset</h3>
+                    <i><BsFileZipFill size="4em" /></i><br></br><h3>Descargar imagenes de usuarios</h3>
                   </button>
                   </a>
                   </div>
@@ -418,7 +418,7 @@ export const AdminPanel = (props) => {
                       centered >
                       <Modal.Header closeButton>
 
-                        <Modal.Title>  <h1 class='text-center'>Reporte del artrópodo{spidernombre}</h1> </Modal.Title>
+                        <Modal.Title>  <h1 class='text-center'>Reporte del artrópodo {spidernombre}</h1> </Modal.Title>
 
                       </Modal.Header>
 

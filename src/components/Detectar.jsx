@@ -92,7 +92,7 @@ export const Detectar = () => {
                     <Modal.Title>Error</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    No se identidicó ninguna araña/alacrán, intenta con otra imagen.
+                    No se identificó ningún artropodo conocido por el sistema, intenta con otra imagen.
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseError}>

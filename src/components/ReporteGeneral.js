@@ -1,6 +1,6 @@
 import {  Document, Page,Text,Image,StyleSheet,Font,View   } from '@react-pdf/renderer';
 
-import portada1 from '../images/portada1.jpg';
+import portada1 from '../images/portada3.jpg';
 import React from "react";
 
 const current = new Date();

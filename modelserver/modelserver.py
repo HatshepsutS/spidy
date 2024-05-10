@@ -73,4 +73,4 @@ def predict():
 
 if __name__ == '__main__':
     print("Modelo cargado. Escuchando en el puerto 8000...")
-    app.run(debug=True, port=8000)
+    app.run(host='0.0.0.0', port=8000)

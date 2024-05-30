@@ -3,7 +3,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import mainPrueba from '../images/mainPage2.png';
-import logoSP from '../images/SpydyLogo.svg';
+import logoSP from '../images/vectorSpidy.svg';
 export const Inicio = () => {
 
   return (

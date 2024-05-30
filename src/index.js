@@ -20,12 +20,12 @@ const routesToRedirect = [
 
 //Database connection
 app.use(myconn(mysql, {
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: '1234',
+    host: 'spidydbserver.mysql.database.azure.com',
+    user: 'spidyadmin',
+    password: 'root1234A',
     database: 'spidy',
-    multipleStatements: true
+    port: 3306,
+    
 }));
 
 //Middleware

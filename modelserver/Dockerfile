@@ -20,7 +20,7 @@ RUN conda env create -f entorno.yml
 ENV PATH /opt/conda/envs/TT/bin:$PATH
 
 # Informa a Docker que el contenedor escucha en el puerto 8000
-EXPOSE 8000
+EXPOSE 80
 
 # El comando por defecto para ejecutar cuando se inicie el contenedor
 CMD ["python", "modelserver.py"]

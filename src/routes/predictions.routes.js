@@ -31,41 +31,49 @@ router.post('/predict', fileUpload, (req, res) => {
     formData.append('file', fs.createReadStream(filePath), {
         filename: req.file.filename
     });
+// Realiza una petición POST a la API externa con la imagen
+axios.post('http://20.246.191.25/predict', formData, {
+    headers: {
+        ...formData.getHeaders()
+    },
+}).then(response => {
+    // Aquí manejamos la respuesta de la API externa
+    const prediction = response.data.predicted_class_index + 1; // Ajusta esta línea según la estructura de la respuesta
+    const date = new Date(Date.now()).toISOString().slice(0, 19).replace('T', ' ');
+    const storagePath = req.file.filename;
 
-    // Realiza una petición POST a la API externa con la imagen
-    axios.post('http://localhost:8000/predict', formData, {
-        headers: {
-            ...formData.getHeaders()
-        },
-    }).then(response => {
-        // Aquí manejamos la respuesta de la API externa
-        const prediction = response.data.predicted_class_index + 1 ; // Ajusta esta línea según la estructura de la respuesta
-        const date = new Date(Date.now()).toISOString().slice(0, 19).replace('T', ' ');
-        const storagePath = req.file.filename;
+    // Procede con la inserción en la base de datos
+    req.getConnection((err, conn) => {
+        if (err) return res.status(500).send('server error');
 
+        conn.query('INSERT INTO predictions SET ?', [{ prediction, date, storagePath }], (err, insertResult) => {
+            if (err) {
+                console.error('Error al ejecutar la consulta de inserción en savePrediction:', err);
+                return res.status(500).send('Error al ejecutar la consulta de inserción');
+            }
 
-        // Procede con la inserción en la base de datos como ya lo haces
-        req.getConnection((err, conn) => {
-            if (err) return res.status(500).send('server error');
-
-            conn.query('INSERT INTO predictions SET ?; SELECT LAST_INSERT_ID() AS ID;', [{ prediction, date, storagePath }], (err, rows) => {
+            // Obtén el último ID insertado
+            conn.query('SELECT LAST_INSERT_ID() AS ID', (err, selectResult) => {
                 if (err) {
-                    console.error('Error al ejecutar la consulta en savePrediction:', err);
-                    return res.status(500).send('Error al ejecutar la consulta');
+                    console.error('Error al ejecutar la consulta de selección en savePrediction:', err);
+                    return res.status(500).send('Error al ejecutar la consulta de selección');
                 }
-                let id = Object.values(JSON.parse(JSON.stringify(rows)));
-                // res.send(id[1][0]); 
+
+                const id = selectResult[0].ID;
                 res.json({
                     status: response.data.status,
-                    id: id[1][0].ID, 
+                    id: id,
                     prediction: response.data.predicted_class_index
                 });
             });
         });
-    }).catch(error => {
-        console.error('Error al realizar la petición a la API externa:', error);
-        res.status(500).send('Error al realizar la petición a la API externa');
     });
+}).catch(error => {
+    console.error('Error al realizar la petición a la API externa:', error);
+    res.status(500).send('Error al realizar la petición a la API externa');
+});
+
+   
 });
 
 

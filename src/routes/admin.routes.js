@@ -26,15 +26,19 @@ router.post('/statsperspider', (req, res) => {
    
     req.getConnection((err, conn) => {
         if (err) return res.status(500).send('server error')
-        conn.query("CALL spiderstats(?, @promedio, @registrostotales);  SELECT @promedio as promedio, @registrostotales as registrostotales", [spidername], function (error, results, fields) {
+        conn.query("CALL spiderstats(?, @promedio, @registrostotales)", [spidername], function (error, results, fields) {
             if (error) throw error;
-            if (results) {
-                res.send(results);
-            }
+            
+            // Ahora, realiza una segunda consulta para obtener los valores de @promedio y @registrostotales
+            conn.query("SELECT @promedio as promedio, @registrostotales as registrostotales", function (error, results, fields) {
+                if (error) throw error;
+                if (results) {
+                    res.send(results);
+                }
+            });
         });
-
-    })
-})
+    });
+});
 
 
 router.post('/adminData', (req, res) => {

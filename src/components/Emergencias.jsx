@@ -78,63 +78,63 @@ Las mordidas de algunas arañas, como la araña viuda negra (Lactrodectus) y la 
               <h2>Números de emergencia</h2>
               <div className="container mt-4">
       <h4>Números Generales</h4>
-      <p>  
+      <p >   
       <Table>
         <thead>
           <tr>
-            <th>Emergencias Generales</th>
-            <th>Denuncia Anónima</th>
+            <th><font color="white" >Emergencias Generales</font></th>
+            <th><font color="white" >Denuncia Anónima</font></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>911</td>
-            <td>089</td>
+            <td><font color="white" >911</font></td>
+            <td><font color="white" >089</font></td>
           </tr>
         </tbody>
       </Table>
       </p>
-      <h4>Números Específicos por Estado</h4>
+      <h4><font color="white" >Números Específicos por Estado</font></h4>
       
       <p>
       <Table>
         <thead >
           <tr>
-            <th>Estado</th>
-            <th>Bomberos</th>
-            <th>Cruz Roja</th>
-            <th>Protección Civil</th>
-            <th>Secretaría de Medio Ambiente</th>
+            <th><font color="white" >Estado </font></th>
+            <th><font color="white" >Bomberos</font></th>
+            <th><font color="white" >Cruz Roja</font></th>
+            <th><font color="white" >Protección Civil</font></th>
+            <th><font color="white" >Secretaría de Medio Ambiente</font></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Jalisco</td>
-            <td>(33) 3619 5152</td>
-            <td>(33) 3613 6060</td>
-            <td>(33) 3030 8250</td>
-            <td>(33) 3030 4500</td>
+            <td><font color="white" >Jalisco</font></td>
+            <td><font color="white" >(33) 3619 5152</font></td>
+            <td><font color="white" >(33) 3613 6060</font></td>
+            <td><font color="white" >(33) 3030 8250</font></td>
+            <td><font color="white" >(33) 3030 4500</font></td>
           </tr>
           <tr>
-            <td>Michoacán</td>
-            <td>(443) 322 2170</td>
-            <td>(443) 312 1212</td>
-            <td>(443) 322 5600</td>
-            <td>(443) 314 0334</td>
+            <td><font color="white" >Michoacán</font></td>
+            <td><font color="white" >(443) 322 2170</font></td>
+            <td><font color="white" >(443) 312 1212</font></td>
+            <td><font color="white" >(443) 322 5600</font></td>
+            <td><font color="white" >(443) 314 0334</font></td>
           </tr>
           <tr>
-            <td>Estado de México</td>
-            <td>(722) 217 8121</td>
-            <td>(722) 214 5911</td>
-            <td>(722) 213 7000</td>
-            <td>(722) 275 6800</td>
+            <td><font color="white" >Estado de México</font></td>
+            <td><font color="white" >(722) 217 8121</font></td>
+            <td><font color="white" >(722) 214 5911</font></td>
+            <td><font color="white" >(722) 213 7000</font></td>
+            <td><font color="white" >(722) 275 6800</font></td>
           </tr>
           <tr>
-            <td>Ciudad de México</td>
-            <td>(55) 5768 3700</td>
-            <td>(55) 5557 5757</td>
-            <td>(55) 5683 2222</td>
-            <td>(55) 5278 9931</td>
+            <td><font color="white" >Ciudad de México</font></td>
+            <td><font color="white" >(55) 5768 3700</font></td>
+            <td><font color="white" >(55) 5557 5757</font></td>
+            <td><font color="white" >(55) 5683 2222</font></td>
+            <td><font color="white" >(55) 5278 9931</font></td>
           </tr>
         </tbody>
       </Table>

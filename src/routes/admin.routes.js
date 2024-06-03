@@ -23,14 +23,14 @@ router.post('/login', (req, res) => {
 router.post('/statsperspider', (req, res) => {
     const body = req.body;
     const spidername = body.spidername;
-   
+
     req.getConnection((err, conn) => {
-        if (err) return res.status(500).send('server error')
+        if (err) return res.status(500).send('server error');
         conn.query("CALL spiderstats(?, @promedio, @registrostotales)", [spidername], function (error, results, fields) {
             if (error) throw error;
-            
+
             // Ahora, realiza una segunda consulta para obtener los valores de @promedio y @registrostotales
-            conn.query("SELECT @promedio as promedio, @registrostotales as registrostotales", function (error, results, fields) {
+            conn.query("SELECT ROUND(@promedio, 2) as promedio, ROUND(@registrostotales, 2) as registrostotales", function (error, results, fields) {
                 if (error) throw error;
                 if (results) {
                     res.send(results);
@@ -39,6 +39,7 @@ router.post('/statsperspider', (req, res) => {
         });
     });
 });
+
 
 
 router.post('/adminData', (req, res) => {
@@ -57,15 +58,16 @@ router.post('/adminData', (req, res) => {
 
 router.post('/satisfaccionG', (req, res) => {
     req.getConnection((err, conn) => {
-        if (err) return res.status(500).send('server error')
-        conn.query("SELECT (AVG((surveyResult)*100)/3) as Positiva , 100-(AVG((surveyResult)*100)/3)  as Negativa FROM surveys", function (error, results, fields) {
+        if (err) return res.status(500).send('server error');
+        conn.query("SELECT ROUND((AVG((surveyResult)*100)/3), 2) as Positiva, ROUND(100-(AVG((surveyResult)*100)/3), 2) as Negativa FROM surveys", function (error, results, fields) {
             if (error) res.send(error);
             if (results) {
                 res.send(results);
             }
         });
-    })
-})
+    });
+});
+
 
 
 router.post('/totalEncuestas', (req, res) => {
@@ -82,16 +84,17 @@ router.post('/totalEncuestas', (req, res) => {
 
 router.post('/satisfaccionA', (req, res) => {
     req.getConnection((err, conn) => {
-        if (err) return res.status(500).send('server error')
-        conn.query("SELECT spiders.species, AVG(surveyResult) as 'PromedioEncuestas' FROM spiders INNER JOIN predictions ON spiders.idSpider = predictions.prediction INNER JOIN surveys ON predictions.idPrediction= surveys.idPrediction group by spiders.idSpider order by AVG(surveyResult) DESC;",
-         function (error, results, fields) {
+        if (err) return res.status(500).send('server error');
+        conn.query("SELECT spiders.species, ROUND(AVG(surveyResult), 2) as 'PromedioEncuestas' FROM spiders INNER JOIN predictions ON spiders.idSpider = predictions.prediction INNER JOIN surveys ON predictions.idPrediction = surveys.idPrediction GROUP BY spiders.idSpider ORDER BY AVG(surveyResult) DESC;", 
+        function (error, results, fields) {
             if (error) res.send(error);
             if (results) {
                 res.send(results);
             }
         });
-    })
-})
+    });
+});
+
 
 
 router.get('/descargarImagenes', (req, res) => {

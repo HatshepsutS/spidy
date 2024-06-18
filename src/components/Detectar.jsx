@@ -37,6 +37,11 @@ export const Detectar = () => {
     const handleShowError = () => setShowError(true);
 
     async function predict() {
+        const fileTypes = ['image/jpeg', 'image/png', 'image/webp'];
+        if (!image || !fileTypes.includes(image.type)) {
+          alert('Solo se admiten archivos en formato .jpg, .png, or .webp');
+          return -1;
+        }
         const formData = new FormData();
         formData.append('file', image);
 
